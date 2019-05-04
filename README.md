@@ -17,3 +17,7 @@ The development process makes use of various Continuous Integration providers.
 | [Travis CI](https://travis-ci.org/) | [![Build Status](https://travis-ci.org/JanMalch/ermine.svg?branch=master)](https://travis-ci.org/JanMalch/ermine) | Runs linter, tests and deploy |
 | [Code Climate](https://codeclimate.com/) | [![Maintainability](https://api.codeclimate.com/v1/badges/b04281b3b88c9a655db5/maintainability)](https://codeclimate.com/github/JanMalch/ermine/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/b04281b3b88c9a655db5/test_coverage)](https://codeclimate.com/github/JanMalch/ermine/test_coverage) | Ensures highest code quality | 
 | [snyk](https://snyk.io/) | [![Known Vulnerabilities](https://snyk.io/test/github/JanMalch/ermine/badge.svg)](https://snyk.io/test/github/JanMalch/ermine) | Checks dependencies for vulnerabilities 
+
+## Documentation
+
+The documentation is created with [Compodoc](https://compodoc.app/) and is available [here](https://janmalch.github.io/ermine/).
