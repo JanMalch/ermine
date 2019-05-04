@@ -9,7 +9,6 @@ import {
 } from '@view/file-tree/tree.control';
 import { TreeOidQuery } from '@graphql/tree-oid.query';
 import { TabInfo } from '@view/file-tabs/file-tabs.component';
-import { PreloadStep } from '@view/file-tree/directory-preloader.service';
 import { concatMap, first, map, mergeMap } from 'rxjs/operators';
 import { from, Observable, ReplaySubject } from 'rxjs';
 import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
