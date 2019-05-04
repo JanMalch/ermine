@@ -1,6 +1,16 @@
 {
   "name": "ermine",
   "version": "0.0.0",
+  "description": "Ermine helps you explore a GitHub repository in an IDE look.",
+  "keywords": ["webapp"],
+  "homepage": "https://ermine.netlify.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JanMalch/ermine"
+  },
+  "bugs": {
+    "url": "https://github.com/JanMalch/ermine/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
