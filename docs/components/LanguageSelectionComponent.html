@@ -1,0 +1,1172 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentation · Ermine</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/laravel.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Documentation · Ermine</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LanguageSelectionComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-language-selection</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./language-selection.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./language-selection.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#activeFile">activeFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#filteredLanguages$">filteredLanguages$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#filterText">filterText</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#fits">fits</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#languageCount">languageCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#onDestroy$">onDestroy$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#selectedLang">selectedLang</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filter">filter</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onEnter">onEnter</a>
+                            </li>
+                            <li>
+                                <a href="#setLanguage">setLanguage</a>
+                            </li>
+                            <li>
+                                <a href="#trackByGroupFn">trackByGroupFn</a>
+                            </li>
+                            <li>
+                                <a href="#trackByLangFn">trackByLangFn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialogRef: <a href="../components/LanguageSelectionComponent.html">MatDialogRef<LanguageSelectionComponent></a>, activeFile: <a href="../interfaces/File.html">File</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../components/LanguageSelectionComponent.html" target="_self" >MatDialogRef&lt;LanguageSelectionComponent&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activeFile</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/File.html" target="_self" >File</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filter"></a>
+                    <span class="name">
+                        <b>
+                            filter
+                        </b>
+                        <a href="#filter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filter(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/LetterGroup.html" target="_self" >LetterGroup[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEnter"></a>
+                    <span class="name">
+                        <b>
+                            onEnter
+                        </b>
+                        <a href="#onEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onEnter()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLanguage"></a>
+                    <span class="name">
+                        <b>
+                            setLanguage
+                        </b>
+                        <a href="#setLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setLanguage(language: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>language</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByGroupFn"></a>
+                    <span class="name">
+                        <b>
+                            trackByGroupFn
+                        </b>
+                        <a href="#trackByGroupFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByGroupFn(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, item: <a href="../interfaces/LetterGroup.html">LetterGroup</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>item</td>
+                                    <td>
+                                                <code><a href="../interfaces/LetterGroup.html" target="_self" >LetterGroup</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByLangFn"></a>
+                    <span class="name">
+                        <b>
+                            trackByLangFn
+                        </b>
+                        <a href="#trackByLangFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByLangFn(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, item: <a href="../interfaces/PrismLanguage.html">PrismLanguage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>item</td>
+                                    <td>
+                                                <code><a href="../interfaces/PrismLanguage.html" target="_self" >PrismLanguage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeFile"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            activeFile</b>
+                            <a href="#activeFile"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/File.html" target="_self" >File</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @Inject(MAT_DIALOG_DATA)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filteredLanguages$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            filteredLanguages$</b>
+                            <a href="#filteredLanguages$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject&lt;LetterGroup[]&gt;(undefined)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filterText"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            filterText</b>
+                            <a href="#filterText"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new FormControl()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fits"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Readonly</span>
+                            fits</b>
+                            <a href="#fits"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="languageCount"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            languageCount</b>
+                            <a href="#languageCount"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>totalLanguageCount</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDestroy$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Readonly</span>
+                            onDestroy$</b>
+                            <a href="#onDestroy$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedLang"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Readonly</span>
+                            selectedLang</b>
+                            <a href="#selectedLang"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.activeFile.language.id</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/view/file-viewer/file-footer/language-selection/language-selection.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { File } from &#x27;@graphql/file-oid.query&#x27;;
+import { MAT_DIALOG_DATA, MatDialogRef } from &#x27;@angular/material&#x27;;
+import {
+  LetterGroup,
+  languageLetterGroups,
+  totalLanguageCount
+} from &#x27;@prism/prism.languages-util&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+import { BehaviorSubject, Subject } from &#x27;rxjs&#x27;;
+import { PrismLanguage } from &#x27;@prism/prism.languages&#x27;;
+import { debounceTime, map, startWith, takeUntil } from &#x27;rxjs/operators&#x27;;
+
+@Component({
+  selector: &#x27;app-language-selection&#x27;,
+  templateUrl: &#x27;./language-selection.component.html&#x27;,
+  styleUrls: [&#x27;./language-selection.component.scss&#x27;]
+})
+export class LanguageSelectionComponent implements OnInit, OnDestroy {
+  private readonly onDestroy$ &#x3D; new Subject&lt;void&gt;();
+
+  readonly selectedLang &#x3D; this.activeFile.language.id; // this.getActiveFile().language;
+  readonly languageCount &#x3D; totalLanguageCount;
+
+  readonly filterText &#x3D; new FormControl();
+  readonly filteredLanguages$ &#x3D; new BehaviorSubject&lt;LetterGroup[]&gt;(undefined);
+
+  constructor(
+    private dialogRef: MatDialogRef&lt;LanguageSelectionComponent&gt;,
+    @Inject(MAT_DIALOG_DATA) public activeFile: File
+  ) {}
+
+  ngOnInit() {
+    this.filterText.valueChanges
+      .pipe(
+        takeUntil(this.onDestroy$),
+        debounceTime(150),
+        startWith(&#x27;&#x27;),
+        map(val &#x3D;&gt; this.filter(val))
+      )
+      .subscribe(value &#x3D;&gt; this.filteredLanguages$.next(value));
+  }
+
+  private readonly fits &#x3D; (a: string, b: string) &#x3D;&gt; a.toLowerCase().includes(b.toLowerCase());
+
+  filter(text: string): LetterGroup[] {
+    if (text &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+      return languageLetterGroups;
+    }
+
+    return languageLetterGroups.reduce((acc, curr) &#x3D;&gt; {
+      const filteredLangs &#x3D; curr.languages.filter(lang &#x3D;&gt; this.fits(lang.name, text));
+
+      if (filteredLangs.length &gt; 0) {
+        acc.push({
+          letter: curr.letter,
+          languages: filteredLangs
+        });
+      }
+
+      return acc;
+    }, []);
+  }
+
+  onEnter() {
+    const group &#x3D; this.filteredLanguages$.getValue()[0];
+    const lang &#x3D; group &amp;&amp; group.languages[0];
+    this.setLanguage(lang &amp;&amp; lang.id);
+  }
+
+  setLanguage(language: string) {
+    this.dialogRef.close(language);
+  }
+
+  trackByLangFn(index: number, item: PrismLanguage) {
+    return item.id;
+  }
+
+  trackByGroupFn(index: number, item: LetterGroup) {
+    return item.letter;
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h3 class&#x3D;&quot;file-name&quot;&gt;{{ activeFile.name }}&lt;/h3&gt;
+&lt;form&gt;
+  &lt;mat-form-field class&#x3D;&quot;full-width&quot;&gt;
+    &lt;input
+      type&#x3D;&quot;text&quot;
+      autocomplete&#x3D;&quot;off&quot;
+      matInput
+      [title]&#x3D;&quot;&#x27;Filter &#x27; + languageCount + &#x27; languages&#x27;&quot;
+      [placeholder]&#x3D;&quot;&#x27;Filter &#x27; + languageCount + &#x27; languages&#x27;&quot;
+      [formControl]&#x3D;&quot;filterText&quot;
+      (keyup.enter)&#x3D;&quot;onEnter()&quot;
+    /&gt;
+    &lt;mat-icon matSuffix svgIcon&#x3D;&quot;filter&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/mat-form-field&gt;
+&lt;/form&gt;
+&lt;mat-divider&gt;&lt;/mat-divider&gt;
+&lt;mat-nav-list&gt;
+  &lt;ng-container *ngFor&#x3D;&quot;let group of filteredLanguages$ | async; trackBy: trackByGroupFn&quot;&gt;
+    &lt;h3 mat-subheader&gt;{{ group.letter }}&lt;/h3&gt;
+
+    &lt;mat-list-item
+      *ngFor&#x3D;&quot;let lang of group.languages; trackBy: trackByLangFn&quot;
+      (click)&#x3D;&quot;setLanguage(lang.id)&quot;
+    &gt;
+      &lt;mat-icon
+        mat-list-icon
+        [color]&#x3D;&quot;selectedLang &#x3D;&#x3D;&#x3D; lang.id ? &#x27;primary&#x27; : undefined&quot;
+        [svgIcon]&#x3D;&quot;selectedLang &#x3D;&#x3D;&#x3D; lang.id ? &#x27;radiobox-marked&#x27; : &#x27;radiobox-blank&#x27;&quot;
+      &gt;&lt;/mat-icon&gt;
+      &lt;h4 mat-line [appScrollIntoView]&#x3D;&quot;selectedLang &#x3D;&#x3D;&#x3D; lang.id&quot;&gt;{{ lang.name }}&lt;/h4&gt;
+    &lt;/mat-list-item&gt;
+  &lt;/ng-container&gt;
+&lt;/mat-nav-list&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./language-selection.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: flex;
+  max-height: 60vh;
+  flex-direction: column;
+}
+
+.mat-nav-list {
+  overflow: hidden auto;
+}
+
+.mat-divider {
+  margin: 8px -24px 16px;
+}
+
+h3.file-name {
+  margin: -24px -24px 24px;
+  padding: 24px;
+  background: #e91e63;
+  color: #fafafa;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  font-weight: 500;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+@media only screen and (max-width: 599px) {
+  :host {
+    max-height: 80vh;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h3 class="file-name">{{ activeFile.name }}</h3><form>  <mat-form-field class="full-width">    <input      type="text"      autocomplete="off"      matInput      [title]="\'Filter \' + languageCount + \' languages\'"      [placeholder]="\'Filter \' + languageCount + \' languages\'"      [formControl]="filterText"      (keyup.enter)="onEnter()"    />    <mat-icon matSuffix svgIcon="filter"></mat-icon>  </mat-form-field></form><mat-divider></mat-divider><mat-nav-list>  <ng-container *ngFor="let group of filteredLanguages$ | async; trackBy: trackByGroupFn">    <h3 mat-subheader>{{ group.letter }}</h3>    <mat-list-item      *ngFor="let lang of group.languages; trackBy: trackByLangFn"      (click)="setLanguage(lang.id)"    >      <mat-icon        mat-list-icon        [color]="selectedLang === lang.id ? \'primary\' : undefined"        [svgIcon]="selectedLang === lang.id ? \'radiobox-marked\' : \'radiobox-blank\'"      ></mat-icon>      <h4 mat-line [appScrollIntoView]="selectedLang === lang.id">{{ lang.name }}</h4>    </mat-list-item>  </ng-container></mat-nav-list></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'CodeRendererComponent', 'selector': 'app-code-renderer[text][language]'},{'name': 'CsvComponent', 'selector': 'app-csv'},{'name': 'DragSizerComponent', 'selector': 'app-drag-sizer'},{'name': 'FileFooterComponent', 'selector': 'app-file-footer[file]'},{'name': 'FileRendererComponent', 'selector': 'app-file-renderer[file]'},{'name': 'FileTabsComponent', 'selector': 'app-file-tabs[files][activeOid]'},{'name': 'FileTreeComponent', 'selector': 'app-file-tree[repository]'},{'name': 'FileViewerComponent', 'selector': 'app-file-viewer[file][repository]'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageRendererComponent', 'selector': 'app-image-renderer[repository]'},{'name': 'LanguageSelectionComponent', 'selector': 'app-language-selection'},{'name': 'LoginChoiceComponent', 'selector': 'app-login-choice[extendedScope]'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'SelectFormComponent', 'selector': 'app-select-form'},{'name': 'ShowdownComponent', 'selector': 'app-showdown'},{'name': 'ViewComponent', 'selector': 'app-view'}];
+    var DIRECTIVES = [{'name': 'PrismDirective', 'selector': '[prism]'},{'name': 'ScrollIntoViewDirective', 'selector': '[appScrollIntoView]'}];
+    var ACTUAL_COMPONENT = {'name': 'LanguageSelectionComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LanguageSelectionComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

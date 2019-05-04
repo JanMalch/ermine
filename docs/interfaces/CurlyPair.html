@@ -1,0 +1,359 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentation · Ermine</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/laravel.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Documentation · Ermine</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interfaces</li>
+  <li>CurlyPair</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/view/file-viewer/file-renderer/collapser.ts</code>
+        </p>
+
+
+
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#button">button</a>
+                                </li>
+                                <li>
+                                        <a href="#curlyWrapper">curlyWrapper</a>
+                                </li>
+                                <li>
+                                        <a href="#lineNumberElements">lineNumberElements</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="button"></a>
+                                        <span class="name"><b>button</b><a href="#button"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>button:     <code>HTMLElement</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>HTMLElement</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="curlyWrapper"></a>
+                                        <span class="name"><b>curlyWrapper</b><a href="#curlyWrapper"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>curlyWrapper:     <code>HTMLElement</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>HTMLElement</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="lineNumberElements"></a>
+                                        <span class="name"><b>lineNumberElements</b><a href="#lineNumberElements"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>lineNumberElements:     <code>HTMLElement[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>HTMLElement[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import {
+  closeCurly,
+  closeCurlyWrapper,
+  closingBrace,
+  collapseBtn,
+  findLineNumber,
+  guid,
+  isCollapsed,
+  lineCount,
+  openCurly,
+  openCurlyWrapper,
+  openingBrace
+} from &#x27;./collapsing.util&#x27;;
+
+export class Collapser implements OnInit, OnDestroy {
+  private readonly elementMap: { [id: string]: CurlyPair } &#x3D; {};
+  private initialized &#x3D; false;
+
+  constructor(private el: HTMLElement) {}
+
+  ngOnInit(): void {
+    if (!this.initialized &amp;&amp; !!this.el &amp;&amp; this.el.innerText.length &gt; 0) {
+      this.addCurlyWrappers();
+      this.initCurlyWrappers();
+      this.fixButtons();
+      this.initialized &#x3D; true;
+    }
+  }
+
+  ngOnDestroy(): void {
+    Object.keys(this.elementMap).forEach(prop &#x3D;&gt; delete this.elementMap[prop]);
+  }
+
+  addCurlyWrappers() {
+    let innerHtml &#x3D; this.el.innerHTML;
+
+    innerHtml &#x3D; innerHtml.replace(
+      new RegExp(openingBrace, &#x27;g&#x27;),
+      collapseBtn + openCurlyWrapper + openCurly + openingBrace
+    );
+    innerHtml &#x3D; innerHtml.replace(
+      new RegExp(closingBrace, &#x27;g&#x27;),
+      closingBrace + closeCurly + closeCurlyWrapper
+    );
+
+    this.el.innerHTML &#x3D; innerHtml;
+  }
+
+  initCurlyWrappers() {
+    const buttons &#x3D; Array.from(this.el.querySelectorAll(&#x27;button&#x27;)) as HTMLElement[];
+    buttons.forEach(button &#x3D;&gt; {
+      const id &#x3D; guid();
+      const curlyWrapper &#x3D; button.nextElementSibling as HTMLElement;
+      const dots &#x3D; curlyWrapper.firstElementChild as HTMLElement;
+
+      const lines &#x3D; lineCount(curlyWrapper.innerHTML) - 1;
+      const lineStart &#x3D; findLineNumber(curlyWrapper.innerHTML);
+      const lineNumberElements &#x3D; this.getLineElements(id, lineStart, lineStart + lines);
+
+      button.onclick &#x3D; (ev: MouseEvent) &#x3D;&gt; {
+        ev.stopPropagation();
+        isCollapsed(curlyWrapper) ? this.expand(id) : this.collapse(id);
+      };
+      button.title &#x3D; &#x60;Toggle ${lines} lines&#x60;;
+
+      dots.onclick &#x3D; () &#x3D;&gt; this.expand(id);
+      dots.title &#x3D; &#x60;Expand ${lines} lines&#x60;;
+
+      this.elementMap[id] &#x3D; { button, curlyWrapper, lineNumberElements };
+    });
+  }
+
+  getLineElements(id: string, start: number, end: number): HTMLElement[] {
+    return Array.from(document.querySelectorAll(&#x27;span.line-numbers-rows &gt; span&#x27;)).filter(
+      (node, index) &#x3D;&gt; index &gt; start &amp;&amp; index &lt;&#x3D; end
+    ) as HTMLElement[];
+  }
+
+  expand(id: string) {
+    const { button, curlyWrapper, lineNumberElements } &#x3D; this.elementMap[id];
+    button.innerText &#x3D; &#x27;-&#x27;;
+    curlyWrapper.classList.replace(&#x27;closed&#x27;, &#x27;open&#x27;);
+    lineNumberElements.forEach(node &#x3D;&gt; node.classList.remove(id)); // remove collapse lock
+    // only if all IDs are removed, the line number will show again
+    this.fixButtons();
+  }
+
+  collapse(id: string) {
+    const { button, curlyWrapper, lineNumberElements } &#x3D; this.elementMap[id];
+    button.innerText &#x3D; &#x27;+&#x27;;
+    curlyWrapper.classList.replace(&#x27;open&#x27;, &#x27;closed&#x27;);
+    lineNumberElements.forEach(node &#x3D;&gt; node.classList.add(id)); // lock collapse state by adding ID
+    this.fixButtons();
+  }
+
+  fixButtons() {
+    Object.values(this.elementMap).forEach(({ button, curlyWrapper }) &#x3D;&gt; {
+      button.style.top &#x3D; &#x60;${curlyWrapper.offsetTop}px&#x60;;
+    });
+  }
+}
+
+interface CurlyPair {
+  button: HTMLElement;
+  curlyWrapper: HTMLElement;
+  lineNumberElements: HTMLElement[];
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'CurlyPair.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

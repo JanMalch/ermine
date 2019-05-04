@@ -1,0 +1,914 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentation · Ermine</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/laravel.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Documentation · Ermine</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NavComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/nav/nav.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-nav</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./nav.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./nav.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#auth">auth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#copyMode">copyMode</a>
+                            </li>
+                            <li>
+                                <a href="#drawer">drawer</a>
+                            </li>
+                            <li>
+                                <a href="#isHandset$">isHandset$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#width">width</a>
+                                </li>
+                                <li>
+                                    <a href="#onViewUrl">onViewUrl</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(breakpointObserver: BreakpointObserver, copyMode: <a href="../injectables/CopyModeService.html">CopyModeService</a>, auth: <a href="../injectables/AuthService.html">AuthService</a>, styleService: <a href="../injectables/StyleService.html">StyleService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/core/nav/nav.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>breakpointObserver</td>
+                                                  
+                                                        <td>
+                                                                    <code>BreakpointObserver</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>copyMode</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyModeService.html" target="_self" >CopyModeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>styleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StyleService.html" target="_self" >StyleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/core/nav/nav.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="auth"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            auth</b>
+                            <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/core/nav/nav.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="copyMode"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            copyMode</b>
+                            <a href="#copyMode"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/CopyModeService.html" target="_self" >CopyModeService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/core/nav/nav.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="drawer"></a>
+                        <span class="name">
+                            <b>
+                            drawer</b>
+                            <a href="#drawer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatSidenav</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;drawer&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/core/nav/nav.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isHandset$"></a>
+                        <span class="name">
+                            <b>
+                            isHandset$</b>
+                            <a href="#isHandset$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map(result &#x3D;&gt; result.matches),
+    shareReplay(1)
+  )</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/core/nav/nav.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="width"></a>
+                        <span class="name"><b>width</b><a href="#width"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>width()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/core/nav/nav.component.ts:18</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>width(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/core/nav/nav.component.ts:22</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onViewUrl"></a>
+                        <span class="name"><b>onViewUrl</b><a href="#onViewUrl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>onViewUrl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/nav/nav.component.ts:51</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Renderer2, ViewChild, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { BreakpointObserver, Breakpoints } from &#x27;@angular/cdk/layout&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { delay, filter, map, mergeMap, shareReplay } from &#x27;rxjs/operators&#x27;;
+import { CopyModeService } from &#x27;@core/copy-mode.service&#x27;;
+import { AuthService } from &#x27;@core/auth.service&#x27;;
+import { NavigationEnd, Router } from &#x27;@angular/router&#x27;;
+import { StyleService } from &#x27;@core/style.service&#x27;;
+import { MatSidenav } from &#x27;@angular/material&#x27;;
+
+@Component({
+  selector: &#x27;app-nav&#x27;,
+  templateUrl: &#x27;./nav.component.html&#x27;,
+  styleUrls: [&#x27;./nav.component.scss&#x27;],
+  encapsulation: ViewEncapsulation.None
+})
+export class NavComponent implements OnInit {
+  get width(): number {
+    return this.styleService.navWidth;
+  }
+
+  set width(value: number) {
+    this.styleService.navWidth &#x3D; value;
+  }
+
+  isHandset$: Observable&lt;boolean&gt; &#x3D; this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map(result &#x3D;&gt; result.matches),
+    shareReplay(1)
+  );
+
+  @ViewChild(&#x27;drawer&#x27;) drawer: MatSidenav;
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public copyMode: CopyModeService,
+    public auth: AuthService,
+    private styleService: StyleService
+  ) {}
+
+  ngOnInit(): void {
+    this.styleService.closeDrawer$
+      .pipe(
+        mergeMap(() &#x3D;&gt; this.isHandset$),
+        filter(x &#x3D;&gt; x)
+      )
+      .subscribe(() &#x3D;&gt; {
+        this.drawer.close();
+      });
+  }
+
+  get onViewUrl(): boolean {
+    return location.pathname.startsWith(&#x27;/view&#x27;);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-sidenav-container class&#x3D;&quot;sidenav-container&quot;&gt;
+  &lt;mat-sidenav
+    #drawer
+    class&#x3D;&quot;sidenav&quot;
+    [style.width.px]&#x3D;&quot;width&quot;
+    fixedInViewport&#x3D;&quot;true&quot;
+    [attr.role]&#x3D;&quot;(isHandset$ | async) ? &#x27;dialog&#x27; : &#x27;navigation&#x27;&quot;
+    [mode]&#x3D;&quot;(isHandset$ | async) ? &#x27;over&#x27; : &#x27;side&#x27;&quot;
+    [opened]&#x3D;&quot;!(isHandset$ | async)&quot;
+  &gt;
+    &lt;mat-toolbar&gt;
+      &lt;ng-container *receiveTemplate&#x3D;&quot;&#x27;menu-title&#x27;&quot;&gt;
+        Ermine
+      &lt;/ng-container&gt;
+    &lt;/mat-toolbar&gt;
+    &lt;mat-nav-list&gt;
+      &lt;ng-container *receiveTemplate&#x3D;&quot;&#x27;nav-list&#x27;&quot;&gt;&lt;/ng-container&gt;
+    &lt;/mat-nav-list&gt;
+  &lt;/mat-sidenav&gt;
+  &lt;mat-sidenav-content [style.margin-left.px]&#x3D;&quot;width&quot;&gt;
+    &lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
+      &lt;button
+        id&#x3D;&quot;mobile-toggle&quot;
+        type&#x3D;&quot;button&quot;
+        aria-label&#x3D;&quot;Open sidenav&quot;
+        mat-icon-button
+        (click)&#x3D;&quot;drawer.toggle()&quot;
+        *ngIf&#x3D;&quot;(isHandset$ | async) &amp;&amp; onViewUrl&quot;
+      &gt;
+        &lt;mat-icon aria-label&#x3D;&quot;Side nav toggle icon&quot; svgIcon&#x3D;&quot;menu&quot;&gt;&lt;/mat-icon&gt;
+      &lt;/button&gt;
+
+      &lt;div style&#x3D;&quot;flex: 1&quot;&gt;
+        &lt;ng-container *receiveTemplate&#x3D;&quot;&#x27;toolbar-title&#x27;&quot;&gt;&lt;/ng-container&gt;
+      &lt;/div&gt;
+
+      &lt;ng-container *ngIf&#x3D;&quot;isHandset$ | async; else desktopMenu&quot;&gt;
+        &lt;button mat-icon-button [matMenuTriggerFor]&#x3D;&quot;mobileMenu&quot; aria-label&#x3D;&quot;Open app menu&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;dots-vertical&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/ng-container&gt;
+    &lt;/mat-toolbar&gt;
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+  &lt;/mat-sidenav-content&gt;
+&lt;/mat-sidenav-container&gt;
+&lt;app-drag-sizer
+  *ngIf&#x3D;&quot;!(isHandset$ | async)&quot;
+  (xPos)&#x3D;&quot;width &#x3D; $event&quot;
+  [style.left.px]&#x3D;&quot;width - 2&quot;
+&gt;&lt;/app-drag-sizer&gt;
+
+&lt;ng-template #desktopMenu&gt;
+  &lt;a
+    mat-icon-button
+    title&#x3D;&quot;Select Repository / Branch&quot;
+    routerLink&#x3D;&quot;/select&quot;
+    routerLinkActive&#x3D;&quot;active&quot;
+    queryParamsHandling&#x3D;&quot;merge&quot;
+  &gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;swap-horizontal&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/a&gt;
+  &lt;a mat-icon-button title&#x3D;&quot;Toggle selection trap&quot; (click)&#x3D;&quot;copyMode.toggle()&quot;&gt;
+    &lt;mat-icon
+      [svgIcon]&#x3D;&quot;
+        (copyMode.copyTrapEnabled$ | async)
+          ? &#x27;clipboard-check-outline&#x27;
+          : &#x27;clipboard-alert-outline&#x27;
+      &quot;
+    &gt;&lt;/mat-icon&gt;
+  &lt;/a&gt;
+  &lt;a
+    mat-icon-button
+    title&#x3D;&quot;Home&quot;
+    routerLinkActive&#x3D;&quot;active&quot;
+    routerLink&#x3D;&quot;/&quot;
+    [routerLinkActiveOptions]&#x3D;&quot;{ exact: true }&quot;
+  &gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;home-outline&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/a&gt;
+  &lt;a mat-icon-button title&#x3D;&quot;About Ermine&quot; routerLinkActive&#x3D;&quot;active&quot; routerLink&#x3D;&quot;/about&quot;&gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;information-outline&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/a&gt;
+
+  &lt;a
+    mat-icon-button
+    title&#x3D;&quot;Logout&quot;
+    [disabled]&#x3D;&quot;!(auth.isLoggedIn$ | async)&quot;
+    (click)&#x3D;&quot;auth.logout()&quot;
+  &gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;logout-variant&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/a&gt;
+&lt;/ng-template&gt;
+
+&lt;mat-menu #mobileMenu&#x3D;&quot;matMenu&quot;&gt;
+  &lt;a
+    mat-menu-item
+    title&#x3D;&quot;Select Repository / Branch&quot;
+    routerLink&#x3D;&quot;/select&quot;
+    queryParamsHandling&#x3D;&quot;merge&quot;
+  &gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;swap-horizontal&quot;&gt;&lt;/mat-icon&gt;
+    Select Repository / Branch
+  &lt;/a&gt;
+  &lt;a mat-menu-item title&#x3D;&quot;Toggle selection trap&quot; (click)&#x3D;&quot;copyMode.toggle()&quot;&gt;
+    &lt;mat-icon
+      [svgIcon]&#x3D;&quot;
+        (copyMode.copyTrapEnabled$ | async)
+          ? &#x27;clipboard-check-outline&#x27;
+          : &#x27;clipboard-alert-outline&#x27;
+      &quot;
+    &gt;&lt;/mat-icon&gt;
+    Toggle selection trap
+  &lt;/a&gt;
+  &lt;mat-divider&gt;&lt;/mat-divider&gt;
+  &lt;a mat-menu-item title&#x3D;&quot;Home&quot; routerLink&#x3D;&quot;/&quot;&gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;home-outline&quot;&gt;&lt;/mat-icon&gt;
+    Home
+  &lt;/a&gt;
+  &lt;a mat-menu-item title&#x3D;&quot;About Ermine&quot; routerLink&#x3D;&quot;/about&quot;&gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;information-outline&quot;&gt;&lt;/mat-icon&gt;
+    About Ermine
+  &lt;/a&gt;
+  &lt;mat-divider&gt;&lt;/mat-divider&gt;
+  &lt;a
+    mat-menu-item
+    title&#x3D;&quot;Logout&quot;
+    [disabled]&#x3D;&quot;!(auth.isLoggedIn$ | async)&quot;
+    (click)&#x3D;&quot;auth.logout()&quot;
+  &gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;logout-variant&quot;&gt;&lt;/mat-icon&gt;
+    Logout
+  &lt;/a&gt;
+&lt;/mat-menu&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./nav.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.sidenav-container {
+  height: 100%;
+}
+
+.sidenav .mat-nav-list {
+  margin-top: 48px;
+}
+
+.mat-toolbar.mat-primary a.active.mat-icon-button {
+  border-radius: 0;
+  // background: rgba(255, 255, 255, 0.15);
+  border-bottom: 2px solid white;
+  height: 48px;
+  line-height: 48px;
+  // transition: all 0.3s;
+}
+
+.sidenav .mat-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #424242;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 48px;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.12);
+  background: #424242;
+}
+
+#mobile-toggle {
+  margin-left: -16px;
+}
+
+#nav-bg {
+  opacity: 0.5;
+  height: 425px;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  width: calc(100% - 16px);
+  background-size: cover;
+}
+
+@media only screen and (max-width: 599px) {
+  .mat-toolbar.mat-primary {
+    padding-right: 0;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav    #drawer    class="sidenav"    [style.width.px]="width"    fixedInViewport="true"    [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"    [mode]="(isHandset$ | async) ? \'over\' : \'side\'"    [opened]="!(isHandset$ | async)"  >    <mat-toolbar>      <ng-container *receiveTemplate="\'menu-title\'">        Ermine      </ng-container>    </mat-toolbar>    <mat-nav-list>      <ng-container *receiveTemplate="\'nav-list\'"></ng-container>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content [style.margin-left.px]="width">    <mat-toolbar color="primary">      <button        id="mobile-toggle"        type="button"        aria-label="Open sidenav"        mat-icon-button        (click)="drawer.toggle()"        *ngIf="(isHandset$ | async) && onViewUrl"      >        <mat-icon aria-label="Side nav toggle icon" svgIcon="menu"></mat-icon>      </button>      <div style="flex: 1">        <ng-container *receiveTemplate="\'toolbar-title\'"></ng-container>      </div>      <ng-container *ngIf="isHandset$ | async; else desktopMenu">        <button mat-icon-button [matMenuTriggerFor]="mobileMenu" aria-label="Open app menu">          <mat-icon svgIcon="dots-vertical"></mat-icon>        </button>      </ng-container>    </mat-toolbar>    <ng-content></ng-content>  </mat-sidenav-content></mat-sidenav-container><app-drag-sizer  *ngIf="!(isHandset$ | async)"  (xPos)="width = $event"  [style.left.px]="width - 2"></app-drag-sizer><ng-template #desktopMenu>  <a    mat-icon-button    title="Select Repository / Branch"    routerLink="/select"    routerLinkActive="active"    queryParamsHandling="merge"  >    <mat-icon svgIcon="swap-horizontal"></mat-icon>  </a>  <a mat-icon-button title="Toggle selection trap" (click)="copyMode.toggle()">    <mat-icon      [svgIcon]="        (copyMode.copyTrapEnabled$ | async)          ? \'clipboard-check-outline\'          : \'clipboard-alert-outline\'      "    ></mat-icon>  </a>  <a    mat-icon-button    title="Home"    routerLinkActive="active"    routerLink="/"    [routerLinkActiveOptions]="{ exact: true }"  >    <mat-icon svgIcon="home-outline"></mat-icon>  </a>  <a mat-icon-button title="About Ermine" routerLinkActive="active" routerLink="/about">    <mat-icon svgIcon="information-outline"></mat-icon>  </a>  <a    mat-icon-button    title="Logout"    [disabled]="!(auth.isLoggedIn$ | async)"    (click)="auth.logout()"  >    <mat-icon svgIcon="logout-variant"></mat-icon>  </a></ng-template><mat-menu #mobileMenu="matMenu">  <a    mat-menu-item    title="Select Repository / Branch"    routerLink="/select"    queryParamsHandling="merge"  >    <mat-icon svgIcon="swap-horizontal"></mat-icon>    Select Repository / Branch  </a>  <a mat-menu-item title="Toggle selection trap" (click)="copyMode.toggle()">    <mat-icon      [svgIcon]="        (copyMode.copyTrapEnabled$ | async)          ? \'clipboard-check-outline\'          : \'clipboard-alert-outline\'      "    ></mat-icon>    Toggle selection trap  </a>  <mat-divider></mat-divider>  <a mat-menu-item title="Home" routerLink="/">    <mat-icon svgIcon="home-outline"></mat-icon>    Home  </a>  <a mat-menu-item title="About Ermine" routerLink="/about">    <mat-icon svgIcon="information-outline"></mat-icon>    About Ermine  </a>  <mat-divider></mat-divider>  <a    mat-menu-item    title="Logout"    [disabled]="!(auth.isLoggedIn$ | async)"    (click)="auth.logout()"  >    <mat-icon svgIcon="logout-variant"></mat-icon>    Logout  </a></mat-menu></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'CodeRendererComponent', 'selector': 'app-code-renderer[text][language]'},{'name': 'CsvComponent', 'selector': 'app-csv'},{'name': 'DragSizerComponent', 'selector': 'app-drag-sizer'},{'name': 'FileFooterComponent', 'selector': 'app-file-footer[file]'},{'name': 'FileRendererComponent', 'selector': 'app-file-renderer[file]'},{'name': 'FileTabsComponent', 'selector': 'app-file-tabs[files][activeOid]'},{'name': 'FileTreeComponent', 'selector': 'app-file-tree[repository]'},{'name': 'FileViewerComponent', 'selector': 'app-file-viewer[file][repository]'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageRendererComponent', 'selector': 'app-image-renderer[repository]'},{'name': 'LanguageSelectionComponent', 'selector': 'app-language-selection'},{'name': 'LoginChoiceComponent', 'selector': 'app-login-choice[extendedScope]'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'SelectFormComponent', 'selector': 'app-select-form'},{'name': 'ShowdownComponent', 'selector': 'app-showdown'},{'name': 'ViewComponent', 'selector': 'app-view'}];
+    var DIRECTIVES = [{'name': 'PrismDirective', 'selector': '[prism]'},{'name': 'ScrollIntoViewDirective', 'selector': '[appScrollIntoView]'}];
+    var ACTUAL_COMPONENT = {'name': 'NavComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

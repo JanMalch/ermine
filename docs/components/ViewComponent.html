@@ -1,0 +1,1156 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentation · Ermine</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/laravel.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Documentation · Ermine</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ViewComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/view/view/view.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-view</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./view.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./view.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentFile$">currentFile$</a>
+                            </li>
+                            <li>
+                                <a href="#fileTree">fileTree</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loader">loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#openFileMap">openFileMap</a>
+                            </li>
+                            <li>
+                                <a href="#repository">repository</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#initialLoadFromUrlPath">initialLoadFromUrlPath</a>
+                            </li>
+                            <li>
+                                <a href="#loadReadme">loadReadme</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#onFileClosed">onFileClosed</a>
+                            </li>
+                            <li>
+                                <a href="#onFileSelected">onFileSelected</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#currentOid">currentOid</a>
+                                </li>
+                                <li>
+                                    <a href="#openFiles">openFiles</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(loader: <a href="../injectables/LoadingService.html">LoadingService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, oidResolver: <a href="../injectables/OidResolverQuery.html">OidResolverQuery</a>, styleService: <a href="../injectables/StyleService.html">StyleService</a>, fileLoader: <a href="../injectables/FileLoaderService.html">FileLoaderService</a>, renderCache: <a href="../injectables/RenderCacheService.html">RenderCacheService</a>, title: <a href="https://angular.io/api/platform-browser/Title" target="_blank">Title</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/view/view/view.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>loader</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LoadingService.html" target="_self" >LoadingService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>oidResolver</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OidResolverQuery.html" target="_self" >OidResolverQuery</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>styleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StyleService.html" target="_self" >StyleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fileLoader</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FileLoaderService.html" target="_self" >FileLoaderService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderCache</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RenderCacheService.html" target="_self" >RenderCacheService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>title</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/platform-browser/Title" target="_blank" >Title</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialLoadFromUrlPath"></a>
+                    <span class="name">
+                        <b>
+                            initialLoadFromUrlPath
+                        </b>
+                        <a href="#initialLoadFromUrlPath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initialLoadFromUrlPath()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/app/view/view/view.component.ts:95</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadReadme"></a>
+                    <span class="name">
+                        <b>
+                            loadReadme
+                        </b>
+                        <a href="#loadReadme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadReadme()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/app/view/view/view.component.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/view/view/view.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">src/app/view/view/view.component.ts:137</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileClosed"></a>
+                    <span class="name">
+                        <b>
+                            onFileClosed
+                        </b>
+                        <a href="#onFileClosed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileClosed(oid: string | null)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/view/view/view.component.ts:80</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>oid</td>
+                                    <td>
+                                            <code>string | null</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileSelected"></a>
+                    <span class="name">
+                        <b>
+                            onFileSelected
+                        </b>
+                        <a href="#onFileSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileSelected(file: <a href="../interfaces/TabInfo.html">TabInfo</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/view/view/view.component.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+                                    <td>
+                                                <code><a href="../interfaces/TabInfo.html" target="_self" >TabInfo</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentFile$"></a>
+                        <span class="name">
+                            <b>
+                            currentFile$</b>
+                            <a href="#currentFile$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject&lt;TabInfo&gt;(null)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/view/view/view.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileTree"></a>
+                        <span class="name">
+                            <b>
+                            fileTree</b>
+                            <a href="#fileTree"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/FileTreeComponent.html" target="_self" >FileTreeComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(FileTreeComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/view/view/view.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loader"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            loader</b>
+                            <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/LoadingService.html" target="_self" >LoadingService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/view/view/view.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openFileMap"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            openFileMap</b>
+                            <a href="#openFileMap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map&lt;string, TabInfo&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/view/view/view.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="repository"></a>
+                        <span class="name">
+                            <b>
+                            repository</b>
+                            <a href="#repository"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Repository.html" target="_self" >Repository</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/view/view/view.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentOid"></a>
+                        <span class="name"><b>currentOid</b><a href="#currentOid"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>currentOid()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/view/view/view.component.ts:36</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openFiles"></a>
+                        <span class="name"><b>openFiles</b><a href="#openFiles"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>openFiles()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/view/view/view.component.ts:44</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, OnDestroy, ViewChild } from &#x27;@angular/core&#x27;;
+import { Repository } from &#x27;@core/models&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { BehaviorSubject } from &#x27;rxjs&#x27;;
+import { TabInfo } from &#x27;@view/file-tabs/file-tabs.component&#x27;;
+import { OidResolverQuery } from &#x27;@graphql/oid-resolver-query.service&#x27;;
+import { FileTreeComponent } from &#x27;@view/file-tree/file-tree.component&#x27;;
+import { animate, style, transition, trigger } from &#x27;@angular/animations&#x27;;
+import { LoadingService } from &#x27;@view/loading.service&#x27;;
+import { StyleService } from &#x27;@core/style.service&#x27;;
+import { Title } from &#x27;@angular/platform-browser&#x27;;
+import { FileLoaderService } from &#x27;@view/file-loader.service&#x27;;
+import { RenderCacheService } from &#x27;@view/file-viewer/file-renderer/render-cache.service&#x27;;
+
+export const loadingBarAnimation &#x3D; trigger(&#x27;loadingBar&#x27;, [
+  transition(&#x27;:enter&#x27;, [
+    style({ transform: &#x27;scaleY(0)&#x27;, opacity: 0 }),
+    animate(&#x27;250ms&#x27;, style({ transform: &#x27;scaleY(1)&#x27;, opacity: 1 }))
+  ]),
+  transition(&#x27;:leave&#x27;, [
+    style({ transform: &#x27;scaleY(1)&#x27;, opacity: 1 }),
+    animate(&#x27;250ms 250ms&#x27;, style({ transform: &#x27;scaleY(0)&#x27;, opacity: 0 }))
+  ])
+]);
+
+@Component({
+  selector: &#x27;app-view&#x27;,
+  templateUrl: &#x27;./view.component.html&#x27;,
+  styleUrls: [&#x27;./view.component.scss&#x27;],
+  animations: [loadingBarAnimation]
+})
+export class ViewComponent implements AfterViewInit, OnDestroy {
+  repository: Repository;
+  currentFile$ &#x3D; new BehaviorSubject&lt;TabInfo&gt;(null);
+
+  get currentOid(): string {
+    return this.currentFile$.getValue().oid;
+  }
+
+  private openFileMap &#x3D; new Map&lt;string, TabInfo&gt;();
+
+  @ViewChild(FileTreeComponent) fileTree: FileTreeComponent;
+
+  get openFiles(): TabInfo[] {
+    return Array.from(this.openFileMap.values());
+  }
+
+  constructor(
+    public loader: LoadingService,
+    private route: ActivatedRoute,
+    private oidResolver: OidResolverQuery,
+    private styleService: StyleService,
+    private fileLoader: FileLoaderService,
+    private renderCache: RenderCacheService,
+    private title: Title
+  ) {}
+
+  ngAfterViewInit() {
+    this.repository &#x3D; this.route.snapshot.data.repository;
+    if (this.repository.branch !&#x3D;&#x3D; &#x27;master&#x27;) {
+      this.title.setTitle(
+        &#x60;${this.repository.owner}/${this.repository.name} at ${
+          this.repository.branch
+        } · Ermine&#x60;
+      );
+    } else {
+      this.title.setTitle(&#x60;${this.repository.owner}/${this.repository.name} · Ermine&#x60;);
+    }
+    this.initialLoadFromUrlPath();
+  }
+
+  onFileSelected(file: TabInfo) {
+    if (!!file) {
+      this.openFileMap.set(file.oid, file);
+      this.currentFile$.next(file);
+      this.styleService.closeDrawer$.next(true);
+    }
+  }
+
+  onFileClosed(oid: string | null) {
+    if (oid &#x3D;&#x3D;&#x3D; null) {
+      this.openFileMap.clear();
+      this.currentFile$.next(null);
+    } else {
+      this.openFileMap.delete(oid);
+      if (oid &#x3D;&#x3D;&#x3D; this.currentOid) {
+        // active file has been closed
+        const index &#x3D; this.openFiles.findIndex(f &#x3D;&gt; f.oid &#x3D;&#x3D;&#x3D; oid);
+        const nextFile &#x3D; this.openFiles[Math.max(0, index - 1)];
+        this.currentFile$.next(nextFile);
+      }
+    }
+  }
+
+  initialLoadFromUrlPath() {
+    this.oidResolver
+      .fetchMapped({
+        name: this.repository.name,
+        owner: this.repository.owner,
+        expression: &#x60;${this.repository.branch}:${this.repository.path}&#x60;
+      })
+      .subscribe(resolved &#x3D;&gt; {
+        if (resolved.type &#x3D;&#x3D;&#x3D; &#x27;Blob&#x27;) {
+          const [fileName, ...remainder] &#x3D; this.repository.path.split(&#x27;/&#x27;).reverse();
+          const dirPath &#x3D; remainder.reverse().join(&#x27;/&#x27;);
+          if (dirPath.length &gt; 0) {
+            this.fileTree.preloadDirectory(dirPath);
+          }
+          this.onFileSelected({
+            fileName,
+            fullPath: dirPath,
+            oid: resolved.oid
+          });
+        } else {
+          this.fileTree.preloadDirectory(this.repository.path);
+          this.loadReadme();
+        }
+      });
+  }
+
+  loadReadme() {
+    this.oidResolver
+      .fetchMapped({
+        name: this.repository.name,
+        owner: this.repository.owner,
+        expression: &#x60;${this.repository.branch}:README.md&#x60;
+      })
+      .subscribe(resolved &#x3D;&gt; {
+        this.onFileSelected({
+          fullPath: &#x27;&#x27;,
+          fileName: &#x27;README.md&#x27;,
+          oid: resolved.oid
+        });
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.fileLoader.clearCache();
+    this.renderCache.clearCache();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-file-viewer
+  *ngIf&#x3D;&quot;currentFile$ | async as cOid&quot;
+  [repository]&#x3D;&quot;repository&quot;
+  [file]&#x3D;&quot;cOid&quot;
+&gt;&lt;/app-file-viewer&gt;
+
+&lt;img
+  *ngIf&#x3D;&quot;!(currentFile$ | async)&quot;
+  alt&#x3D;&quot;Placeholder Image&quot;
+  src&#x3D;&quot;assets/svg/choice_9385.svg&quot;
+/&gt;
+
+&lt;ng-container *sendTemplate&#x3D;&quot;&#x27;menu-title&#x27;&quot;&gt;
+  &lt;a
+    mat-button
+    title&#x3D;&quot;Open on GitHub&quot;
+    [href]&#x3D;&quot;
+      &#x27;https://github.com/&#x27; +
+      repository.owner +
+      &#x27;/&#x27; +
+      repository.name +
+      &#x27;/tree/&#x27; +
+      repository.branch
+    &quot;
+    style&#x3D;&quot;flex: 1; overflow: hidden; text-overflow: ellipsis;&quot;
+  &gt;
+    &lt;span&gt;{{ repository.owner }}/{{ repository.name }}/{{ repository.branch }}&lt;/span&gt;
+    &lt;mat-icon svgIcon&#x3D;&quot;github-circle&quot; style&#x3D;&quot;margin-left: 4px;&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/a&gt;
+&lt;/ng-container&gt;
+
+&lt;ng-container *sendTemplate&#x3D;&quot;&#x27;toolbar-title&#x27;&quot;&gt;
+  &lt;app-file-tabs
+    [files]&#x3D;&quot;openFiles&quot;
+    [activeOid]&#x3D;&quot;(currentFile$ | async)?.oid&quot;
+    (fileSelected)&#x3D;&quot;onFileSelected($event)&quot;
+    (fileClosed)&#x3D;&quot;onFileClosed($event)&quot;
+  &gt;&lt;/app-file-tabs&gt;
+&lt;/ng-container&gt;
+&lt;ng-container *sendTemplate&#x3D;&quot;&#x27;nav-list&#x27;&quot;&gt;
+  &lt;mat-progress-bar
+    mode&#x3D;&quot;indeterminate&quot;
+    *ngIf&#x3D;&quot;loader.loading$ | async&quot;
+    [@loadingBar]
+  &gt;&lt;/mat-progress-bar&gt;
+  &lt;app-file-tree
+    [repository]&#x3D;&quot;repository&quot;
+    (fileSelected)&#x3D;&quot;onFileSelected($event)&quot;
+  &gt;&lt;/app-file-tree&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./view.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  max-width: 95vw;
+}
+
+.mat-progress-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48px;
+  transform-origin: top;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-file-viewer  *ngIf="currentFile$ | async as cOid"  [repository]="repository"  [file]="cOid"></app-file-viewer><img  *ngIf="!(currentFile$ | async)"  alt="Placeholder Image"  src="assets/svg/choice_9385.svg"/><ng-container *sendTemplate="\'menu-title\'">  <a    mat-button    title="Open on GitHub"    [href]="      \'https://github.com/\' +      repository.owner +      \'/\' +      repository.name +      \'/tree/\' +      repository.branch    "    style="flex: 1; overflow: hidden; text-overflow: ellipsis;"  >    <span>{{ repository.owner }}/{{ repository.name }}/{{ repository.branch }}</span>    <mat-icon svgIcon="github-circle" style="margin-left: 4px;"></mat-icon>  </a></ng-container><ng-container *sendTemplate="\'toolbar-title\'">  <app-file-tabs    [files]="openFiles"    [activeOid]="(currentFile$ | async)?.oid"    (fileSelected)="onFileSelected($event)"    (fileClosed)="onFileClosed($event)"  ></app-file-tabs></ng-container><ng-container *sendTemplate="\'nav-list\'">  <mat-progress-bar    mode="indeterminate"    *ngIf="loader.loading$ | async"    [@loadingBar]  ></mat-progress-bar>  <app-file-tree    [repository]="repository"    (fileSelected)="onFileSelected($event)"  ></app-file-tree></ng-container></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'CodeRendererComponent', 'selector': 'app-code-renderer[text][language]'},{'name': 'CsvComponent', 'selector': 'app-csv'},{'name': 'DragSizerComponent', 'selector': 'app-drag-sizer'},{'name': 'FileFooterComponent', 'selector': 'app-file-footer[file]'},{'name': 'FileRendererComponent', 'selector': 'app-file-renderer[file]'},{'name': 'FileTabsComponent', 'selector': 'app-file-tabs[files][activeOid]'},{'name': 'FileTreeComponent', 'selector': 'app-file-tree[repository]'},{'name': 'FileViewerComponent', 'selector': 'app-file-viewer[file][repository]'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageRendererComponent', 'selector': 'app-image-renderer[repository]'},{'name': 'LanguageSelectionComponent', 'selector': 'app-language-selection'},{'name': 'LoginChoiceComponent', 'selector': 'app-login-choice[extendedScope]'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'SelectFormComponent', 'selector': 'app-select-form'},{'name': 'ShowdownComponent', 'selector': 'app-showdown'},{'name': 'ViewComponent', 'selector': 'app-view'}];
+    var DIRECTIVES = [{'name': 'PrismDirective', 'selector': '[prism]'},{'name': 'ScrollIntoViewDirective', 'selector': '[appScrollIntoView]'}];
+    var ACTUAL_COMPONENT = {'name': 'ViewComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ViewComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
