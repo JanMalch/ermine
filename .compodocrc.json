@@ -1,0 +1,6 @@
+{
+  "tsconfig": "src/tsconfig.app.json",
+  "output": "docs",
+  "name": "Documentation · Ermine",
+  "theme": "laravel"
+}

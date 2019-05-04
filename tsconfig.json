@@ -1,0 +1,73 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "paths": {
+      "@core": [
+        "./src/app/core"
+      ],
+      "@core/*": [
+        "./src/app/core/*"
+      ],
+      "@shared": [
+        "./src/app/shared"
+      ],
+      "@shared/*": [
+        "./src/app/shared/*"
+      ],
+      "@graphql": [
+        "./src/app/graphql"
+      ],
+      "@graphql/*": [
+        "./src/app/graphql/*"
+      ],
+      "@material": [
+        "./src/app/material"
+      ],
+      "@material/*": [
+        "./src/app/material/*"
+      ],
+      "@view": [
+        "./src/app/view"
+      ],
+      "@view/*": [
+        "./src/app/view/*"
+      ],
+      "@select": [
+        "./src/app/select"
+      ],
+      "@select/*": [
+        "./src/app/select/*"
+      ],
+      "@about": [
+        "./src/app/about"
+      ],
+      "@about/*": [
+        "./src/app/about/*"
+      ],
+      "@prism": [
+        "./src/app/prism"
+      ],
+      "@prism/*": [
+        "./src/app/prism/*"
+      ]
+    }
+  }
+}

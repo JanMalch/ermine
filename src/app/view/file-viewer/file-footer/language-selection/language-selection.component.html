@@ -1,0 +1,33 @@
+<h3 class="file-name">{{ activeFile.name }}</h3>
+<form>
+  <mat-form-field class="full-width">
+    <input
+      type="text"
+      autocomplete="off"
+      matInput
+      [title]="'Filter ' + languageCount + ' languages'"
+      [placeholder]="'Filter ' + languageCount + ' languages'"
+      [formControl]="filterText"
+      (keyup.enter)="onEnter()"
+    />
+    <mat-icon matSuffix svgIcon="filter"></mat-icon>
+  </mat-form-field>
+</form>
+<mat-divider></mat-divider>
+<mat-nav-list>
+  <ng-container *ngFor="let group of filteredLanguages$ | async; trackBy: trackByGroupFn">
+    <h3 mat-subheader>{{ group.letter }}</h3>
+
+    <mat-list-item
+      *ngFor="let lang of group.languages; trackBy: trackByLangFn"
+      (click)="setLanguage(lang.id)"
+    >
+      <mat-icon
+        mat-list-icon
+        [color]="selectedLang === lang.id ? 'primary' : undefined"
+        [svgIcon]="selectedLang === lang.id ? 'radiobox-marked' : 'radiobox-blank'"
+      ></mat-icon>
+      <h4 mat-line [appScrollIntoView]="selectedLang === lang.id">{{ lang.name }}</h4>
+    </mat-list-item>
+  </ng-container>
+</mat-nav-list>

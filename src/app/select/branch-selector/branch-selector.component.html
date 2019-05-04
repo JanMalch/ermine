@@ -1,0 +1,22 @@
+<mat-form-field appearance="fill" [formGroup]="formGroup" style="width: 100%;">
+  <mat-label>Branch</mat-label>
+  <input
+    matInput
+    type="text"
+    formControlName="branch"
+    required
+    #branchInput
+    [matAutocomplete]="auto"
+  />
+  <mat-icon matPrefix svgIcon="source-branch"></mat-icon>
+  <mat-icon
+    matSuffix
+    [svgIcon]="fetching ? 'loading' : 'menu-down'"
+    [class.mdi-spin]="fetching"
+  ></mat-icon>
+  <mat-autocomplete #auto="matAutocomplete" (opened)="fetchBranches()">
+    <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

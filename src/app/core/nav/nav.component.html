@@ -1,0 +1,133 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    [style.width.px]="width"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <mat-toolbar>
+      <ng-container *receiveTemplate="'menu-title'">
+        Ermine
+      </ng-container>
+    </mat-toolbar>
+    <mat-nav-list>
+      <ng-container *receiveTemplate="'nav-list'"></ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content [style.margin-left.px]="width">
+    <mat-toolbar color="primary">
+      <button
+        id="mobile-toggle"
+        type="button"
+        aria-label="Open sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async) && onViewUrl"
+      >
+        <mat-icon aria-label="Side nav toggle icon" svgIcon="menu"></mat-icon>
+      </button>
+
+      <div style="flex: 1">
+        <ng-container *receiveTemplate="'toolbar-title'"></ng-container>
+      </div>
+
+      <ng-container *ngIf="isHandset$ | async; else desktopMenu">
+        <button mat-icon-button [matMenuTriggerFor]="mobileMenu" aria-label="Open app menu">
+          <mat-icon svgIcon="dots-vertical"></mat-icon>
+        </button>
+      </ng-container>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-drag-sizer
+  *ngIf="!(isHandset$ | async)"
+  (xPos)="width = $event"
+  [style.left.px]="width - 2"
+></app-drag-sizer>
+
+<ng-template #desktopMenu>
+  <a
+    mat-icon-button
+    title="Select Repository / Branch"
+    routerLink="/select"
+    routerLinkActive="active"
+    queryParamsHandling="merge"
+  >
+    <mat-icon svgIcon="swap-horizontal"></mat-icon>
+  </a>
+  <a mat-icon-button title="Toggle selection trap" (click)="copyMode.toggle()">
+    <mat-icon
+      [svgIcon]="
+        (copyMode.copyTrapEnabled$ | async)
+          ? 'clipboard-check-outline'
+          : 'clipboard-alert-outline'
+      "
+    ></mat-icon>
+  </a>
+  <a
+    mat-icon-button
+    title="Home"
+    routerLinkActive="active"
+    routerLink="/"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <mat-icon svgIcon="home-outline"></mat-icon>
+  </a>
+  <a mat-icon-button title="About Ermine" routerLinkActive="active" routerLink="/about">
+    <mat-icon svgIcon="information-outline"></mat-icon>
+  </a>
+
+  <a
+    mat-icon-button
+    title="Logout"
+    [disabled]="!(auth.isLoggedIn$ | async)"
+    (click)="auth.logout()"
+  >
+    <mat-icon svgIcon="logout-variant"></mat-icon>
+  </a>
+</ng-template>
+
+<mat-menu #mobileMenu="matMenu">
+  <a
+    mat-menu-item
+    title="Select Repository / Branch"
+    routerLink="/select"
+    queryParamsHandling="merge"
+  >
+    <mat-icon svgIcon="swap-horizontal"></mat-icon>
+    Select Repository / Branch
+  </a>
+  <a mat-menu-item title="Toggle selection trap" (click)="copyMode.toggle()">
+    <mat-icon
+      [svgIcon]="
+        (copyMode.copyTrapEnabled$ | async)
+          ? 'clipboard-check-outline'
+          : 'clipboard-alert-outline'
+      "
+    ></mat-icon>
+    Toggle selection trap
+  </a>
+  <mat-divider></mat-divider>
+  <a mat-menu-item title="Home" routerLink="/">
+    <mat-icon svgIcon="home-outline"></mat-icon>
+    Home
+  </a>
+  <a mat-menu-item title="About Ermine" routerLink="/about">
+    <mat-icon svgIcon="information-outline"></mat-icon>
+    About Ermine
+  </a>
+  <mat-divider></mat-divider>
+  <a
+    mat-menu-item
+    title="Logout"
+    [disabled]="!(auth.isLoggedIn$ | async)"
+    (click)="auth.logout()"
+  >
+    <mat-icon svgIcon="logout-variant"></mat-icon>
+    Logout
+  </a>
+</mat-menu>

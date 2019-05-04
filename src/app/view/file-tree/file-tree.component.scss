@@ -1,0 +1,26 @@
+:host {
+  display: inline-block;
+  padding: 8px 8px 25vh;
+  white-space: nowrap;
+  min-width: calc(100% - 16px);
+}
+
+.mat-tree-node {
+  font-weight: 400;
+  font-size: 14px;
+  color: inherit;
+  transition: background 0.22s;
+  cursor: pointer;
+  border-radius: 2px;
+  min-height: 32px !important;
+  padding-right: 16px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.dir-label {
+  line-height: 40px;
+  width: 100%;
+}

@@ -1,0 +1,51 @@
+<form [formGroup]="repoForm" (ngSubmit)="submit()" novalidate>
+  <mat-card style="display: inline-block;">
+    <mat-card-header>
+      <mat-icon svgIcon="github-circle" mat-card-avatar></mat-icon>
+      <mat-card-title>Select a GitHub repository</mat-card-title>
+      <mat-card-subtitle
+        >Scope: {{ (auth.isExtendedScope$ | async) ? 'Extended' : 'Basic' }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Owner</mat-label>
+        <input matInput type="text" formControlName="owner" required />
+        <mat-icon matPrefix svgIcon="account-circle"></mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" required />
+        <mat-icon matPrefix svgIcon="database"></mat-icon>
+      </mat-form-field>
+
+      <app-branch-selector [formGroup]="repoForm"></app-branch-selector>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="repoForm.invalid || loading"
+      >
+        Select
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        [title]="historyString"
+        [disabled]="!historyAvailable || loading"
+        (click)="setLastValues()"
+      >
+        <mat-icon svgIcon="history"></mat-icon>
+      </button>
+    </mat-card-actions>
+    <mat-error *ngIf="!!routingFailed">
+      <mat-icon svgIcon="alert"></mat-icon>
+      {{ routingFailed }}</mat-error
+    >
+  </mat-card>
+</form>

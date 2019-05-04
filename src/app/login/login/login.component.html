@@ -1,0 +1,54 @@
+<section>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-icon svgIcon="account-key" mat-card-avatar></mat-icon>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Sign in with GitHub</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        A login is required to use Ermine. Please login with your GitHub account.
+      </p>
+      <p>
+        You can choose to login with either the <b>basic scope</b> or the
+        <b>extended scope</b>. With the basic scope you will be able to read all public
+        repositories. Only with the <b>extended scope</b> you will be able to read private
+        repositories that you have access to, including your very own ones.
+      </p>
+      <p>
+        You can always completely revoke the access in your
+        <a href="https://github.com/settings/applications">GitHub settings</a>.
+      </p>
+      <p>
+        <b>
+          Ermine uses cookies to remember your preferences. By clicking one of the buttons
+          below you accept the usage of cookies.</b
+        >
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <app-login-choice
+        [extendedScope]="true"
+        (success)="onSuccess($event)"
+      ></app-login-choice>
+      <app-login-choice
+        [extendedScope]="false"
+        (success)="onSuccess($event)"
+      ></app-login-choice>
+    </mat-card-actions>
+  </mat-card>
+
+  <small
+    >After logging in you will be redirected to <b>{{ returnUrl }}</b
+    >.</small
+  >
+</section>
+
+<ng-container *sendTemplate="'menu-title'">Ermine</ng-container>
+<ng-container *sendTemplate="'toolbar-title'">Login</ng-container>
+<ng-container *sendTemplate="'nav-list'">
+  <div
+    id="nav-bg"
+    style="background-image: url('assets/svg/creative_experiment_8dk3.svg')"
+  ></div>
+</ng-container>

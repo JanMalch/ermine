@@ -1,0 +1,50 @@
+<app-file-viewer
+  *ngIf="currentFile$ | async as cOid"
+  [repository]="repository"
+  [file]="cOid"
+></app-file-viewer>
+
+<img
+  *ngIf="!(currentFile$ | async)"
+  alt="Placeholder Image"
+  src="assets/svg/choice_9385.svg"
+/>
+
+<ng-container *sendTemplate="'menu-title'">
+  <a
+    mat-button
+    title="Open on GitHub"
+    [href]="
+      'https://github.com/' +
+      repository.owner +
+      '/' +
+      repository.name +
+      '/tree/' +
+      repository.branch
+    "
+    style="flex: 1; overflow: hidden; text-overflow: ellipsis;"
+  >
+    <span>{{ repository.owner }}/{{ repository.name }}/{{ repository.branch }}</span>
+    <mat-icon svgIcon="github-circle" style="margin-left: 4px;"></mat-icon>
+  </a>
+</ng-container>
+
+<ng-container *sendTemplate="'toolbar-title'">
+  <app-file-tabs
+    [files]="openFiles"
+    [activeOid]="(currentFile$ | async)?.oid"
+    (fileSelected)="onFileSelected($event)"
+    (fileClosed)="onFileClosed($event)"
+  ></app-file-tabs>
+</ng-container>
+<ng-container *sendTemplate="'nav-list'">
+  <mat-progress-bar
+    mode="indeterminate"
+    *ngIf="loader.loading$ | async"
+    [@loadingBar]
+  ></mat-progress-bar>
+  <app-file-tree
+    [repository]="repository"
+    (fileSelected)="onFileSelected($event)"
+  ></app-file-tree>
+</ng-container>

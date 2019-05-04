@@ -1,0 +1,60 @@
+<section>
+  <h1 class="mat-display-3">WELCOME TO ERMINE</h1>
+  <mat-divider></mat-divider>
+  <p>
+    Ermine is a simple web app that allows you to browse any GitHub repository in an IDE look.
+  </p>
+
+  <a mat-raised-button color="accent" routerLink="/select">
+    Select a repository
+  </a>
+</section>
+<section>
+  <div>
+    <p>
+      You can easily open multiple files with syntax highlighting for a huge amount of
+      languages, or view images and CSV tables!
+    </p>
+    <details>
+      <summary title="Click to expand"
+        >{{ languages.length }} languages are supported!</summary
+      >
+      <ul>
+        <li *ngFor="let lang of languages">
+          {{ lang.name
+          }}<!--
+          <mat-icon svgIcon="code-tags-check"></mat-icon>
+          .{{ lang.fileEndings.join(", .") }}-->
+        </li>
+      </ul>
+    </details>
+    <p>
+      Head over to the <a routerLink="/select">select page</a>, login with GitHub, and type in
+      the owner and name of the repository you want.<br />You can also type in any branch,
+      commit hash, or open the dropdown and fetch all available branches.
+    </p>
+    <p>
+      For bonus convenience add this
+      <a href="https://en.wikipedia.org/wiki/Bookmarklet" target="_blank" rel="noopener"
+        >bookmarklet</a
+      >
+      to open the GitHub repository in your current tab here on Ermine!
+    </p>
+    <pre>
+javascript:window.open("https://ermine.netlify.com/view?url=" + location.pathname, "_blank");</pre
+    >
+    <p>
+      Sometimes Ermine can't properly parse the URL, for example when there are slashes in the
+      branch name. You will be redirected to the select page, where you can fix the values.
+    </p>
+  </div>
+</section>
+<section>
+  <p>Learn more <a routerLink="/about">about Ermine</a>, its features and how it is built.</p>
+</section>
+
+<ng-container *sendTemplate="'menu-title'">Ermine</ng-container>
+<ng-container *sendTemplate="'toolbar-title'">Welcome!</ng-container>
+<ng-container *sendTemplate="'nav-list'">
+  <div id="nav-bg" style="background-image: url('assets/svg/online_page_cq94.svg')"></div>
+</ng-container>

@@ -1,0 +1,15 @@
+<ng-container [ngSwitch]="file.handler">
+  <app-showdown *ngSwitchCase="'markdown'" [text]="file.text"></app-showdown>
+  <app-code-renderer
+    *ngSwitchCase="'code'"
+    [oid]="file.oid"
+    [isLargeFile]="file.isLargeFile"
+    [text]="file.text"
+    [language]="file.language.id"
+  ></app-code-renderer>
+  <app-csv *ngSwitchCase="'csv'" [text]="file.text"></app-csv>
+  <app-image-renderer
+    *ngSwitchCase="'image'"
+    [repository]="file.repository"
+  ></app-image-renderer>
+</ng-container>

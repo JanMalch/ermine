@@ -1,0 +1,41 @@
+<mat-tab-group
+  color="accent"
+  style="flex: 1;"
+  (selectedIndexChange)="fileSelected.emit(files[$event])"
+>
+  <mat-tab *ngFor="let file of files">
+    <ng-template mat-tab-label>
+      <span class="file-label" (click)="fileSelected.emit(file)">
+        {{ file.fileName }}
+      </span>
+      <button
+        mat-icon-button
+        color="accent"
+        title="Close"
+        (click)="$event.stopPropagation() || fileClosed.emit(file.oid)"
+        class="close-file"
+      >
+        <mat-icon svgIcon="close"></mat-icon>
+      </button>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+<button mat-flat-button color="accent" [matMenuTriggerFor]="fileMenu">
+  <mat-icon svgIcon="file-multiple"></mat-icon>
+  <span style="margin-left: 12px;">{{ files.length }}</span>
+</button>
+
+<mat-menu #fileMenu="matMenu">
+  <button mat-menu-item (click)="fileClosed.emit(null)">
+    <mat-icon
+      svgIcon="close-octagon"
+      color="accent"
+      style="transform: translateY(-2px);"
+    ></mat-icon>
+    Close all
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item *ngFor="let file of files" (click)="fileSelected.emit(file)">
+    {{ file.fileName }}
+  </button>
+</mat-menu>

@@ -1,0 +1,17 @@
+app-showdown {
+  display: block;
+  padding: 32px;
+}
+
+app-showdown pre {
+  padding: 8px 16px;
+  border-radius: 3px;
+  background: #282b2e;
+}
+
+app-showdown :not(pre) > code {
+  padding: 3px 4px;
+  border-radius: 2px;
+  margin: 0 2px;
+  background: rgba(255, 255, 255, 0.08);
+}

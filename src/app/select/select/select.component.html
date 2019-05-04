@@ -1,0 +1,18 @@
+<ng-container *ngIf="!(isHandset$ | async)">
+  <h1 class="mat-display-3">Select a repository</h1>
+  <mat-divider></mat-divider>
+</ng-container>
+
+<app-select-form></app-select-form>
+
+<p *ngIf="!(auth.isExtendedScope$ | async)">
+  Unable to open the repository? You are currently logged in with the basic scope.<br />Head
+  over to the <a routerLink="/login">login page</a> and click on the extended scope and try
+  again.<br />You need the extended scope to read your own private repositories!
+</p>
+
+<ng-container *sendTemplate="'menu-title'">Ermine</ng-container>
+<ng-container *sendTemplate="'toolbar-title'">Ready to go ...</ng-container>
+<ng-container *sendTemplate="'nav-list'">
+  <div id="nav-bg" style="background-image: url('assets/svg/code_review_l1q9.svg')"></div>
+</ng-container>

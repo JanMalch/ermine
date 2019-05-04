@@ -1,0 +1,4 @@
+<div *ngIf="file$ | async as file">
+  <app-file-footer [file]="file"></app-file-footer>
+  <app-file-renderer [file]="file"></app-file-renderer>
+</div>

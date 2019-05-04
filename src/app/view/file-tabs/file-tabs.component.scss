@@ -1,0 +1,46 @@
+app-file-tabs {
+  display: flex;
+  transform: translateX(-16px);
+
+  .mat-tab-header {
+    border-bottom: none;
+    width: calc(100vw - 300px - 88px - 32px - 5 * 40px);
+  }
+
+  .mat-ink-bar {
+    height: 3px;
+  }
+
+  .file-label {
+    line-height: 48px;
+  }
+
+  .close-file {
+    transform: scale(0.8) translate(6px, 1px);
+  }
+
+  button.mat-flat-button {
+    width: 88px;
+    border-radius: 0;
+    height: 48px;
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: brightness(115%);
+    }
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .mat-tab-header {
+    width: calc(100vw - 80px) !important;
+  }
+
+  button.mat-flat-button {
+    display: none;
+  }
+
+  app-file-tabs {
+    transform: none;
+  }
+}

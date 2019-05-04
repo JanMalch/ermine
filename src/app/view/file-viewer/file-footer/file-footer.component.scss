@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  border-top: 1px solid rgba(#fff, 0.12);
+  align-items: center;
+
+  > *:not(mat-menu):not(.mat-icon-button) {
+    padding: 0 16px;
+    height: 100%;
+    line-height: 48px;
+
+    &:not(:last-child) {
+      border-right: 1px solid rgba(#fff, 0.12);
+    }
+  }
+
+  > .mat-button {
+    border-radius: 0;
+
+    .mat-icon {
+      margin: -8px 12px 0 0;
+    }
+  }
+
+  #spacer {
+    flex: 1;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  :host > div:first-child {
+    flex: 1;
+  }
+}
