@@ -173,7 +173,6 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
    */
   async toggleNode(node: DynamicFlatNode, expand: boolean) {
     if (!this.database.areChildrenFetched(node.oid)) {
-      // node.isLoading = true;
       this.loading$.next(true);
     }
 
@@ -200,11 +199,8 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
       this.data.splice(index + 1, count);
     }
 
-    // notify the change
-    /// this.dataChange.next(this.data);
-    // distinct by OID
+    // notify the change, distinct by OID
     this.data = this.data.filter((v, i, a) => a.findIndex(n => n.oid === v.oid) === i);
-    // node.isLoading = false;
     this.loading$.next(false);
   }
 
