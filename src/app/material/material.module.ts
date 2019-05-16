@@ -26,7 +26,6 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
