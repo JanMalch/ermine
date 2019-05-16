@@ -48,6 +48,10 @@ export class NavComponent implements OnInit {
       });
   }
 
+  autoWidth() {
+    this.width = document.querySelector("app-file-tree").clientWidth + 10;
+  }
+
   get onViewUrl(): boolean {
     return location.pathname.startsWith('/view');
   }

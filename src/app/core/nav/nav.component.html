@@ -46,6 +46,7 @@
 <app-drag-sizer
   *ngIf="!(isHandset$ | async)"
   (xPos)="width = $event"
+  (dblclick)="autoWidth()"
   [style.left.px]="width - 2"
 ></app-drag-sizer>
 
