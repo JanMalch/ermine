@@ -762,7 +762,7 @@ export const prismLanguages: PrismLanguage[] = [
   {
     name: 'YAML',
     id: 'yaml',
-    fileEndings: ['yml']
+    fileEndings: ['yml', 'yaml']
   },
   {
     name: 'TCL',
