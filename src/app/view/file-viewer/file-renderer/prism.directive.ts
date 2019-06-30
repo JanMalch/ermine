@@ -48,7 +48,7 @@ export class PrismDirective implements OnInit {
     this.collapser = new Collapser(this.codeEl);
   }
 
-  private highlight(code: string, language: string) {
+  private highlight(code: string, language: string = 'plain') {
     if (!!this.collapser) {
       this.collapser.ngOnDestroy();
     }
