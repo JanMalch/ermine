@@ -1,12 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '@core/auth.service';
 import { Repository } from '@core/models';
 import { Title } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { map, shareReplay } from 'rxjs/operators';
-import { MatSidenav } from '@angular/material';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { isHandset } from '@core/responsive';
 
 @Component({
   selector: 'app-select',
@@ -15,11 +13,7 @@ import { MatSidenav } from '@angular/material';
 })
 export class SelectComponent implements OnInit {
   private repository: Repository;
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(result => result.matches),
-    shareReplay(1)
-  );
+  readonly isHandset$ = isHandset(this.breakpointObserver);
 
   constructor(
     private breakpointObserver: BreakpointObserver,

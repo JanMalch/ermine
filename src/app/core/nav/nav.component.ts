@@ -1,12 +1,11 @@
-import { Component, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { delay, filter, map, mergeMap, shareReplay } from 'rxjs/operators';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { filter, mergeMap } from 'rxjs/operators';
 import { CopyModeService } from '@core/copy-mode.service';
 import { AuthService } from '@core/auth.service';
-import { NavigationEnd, Router } from '@angular/router';
 import { StyleService } from '@core/style.service';
 import { MatSidenav } from '@angular/material';
+import { isHandset } from '@core/responsive';
 
 @Component({
   selector: 'app-nav',
@@ -23,10 +22,7 @@ export class NavComponent implements OnInit {
     this.styleService.navWidth = value;
   }
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(result => result.matches),
-    shareReplay(1)
-  );
+  readonly isHandset$ = isHandset(this.breakpointObserver);
 
   @ViewChild('drawer') drawer: MatSidenav;
 
@@ -49,7 +45,7 @@ export class NavComponent implements OnInit {
   }
 
   autoWidth() {
-    this.width = document.querySelector("app-file-tree").clientWidth + 10;
+    this.width = document.querySelector('app-file-tree').clientWidth + 10;
   }
 
   get onViewUrl(): boolean {

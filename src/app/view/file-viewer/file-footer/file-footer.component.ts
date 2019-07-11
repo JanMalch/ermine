@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { determineHandler, File } from '@graphql/file-oid.query';
 import { prismLanguages } from '@prism/prism.languages';
 import { MatDialog, MatSnackBar } from '@angular/material';
-import { Observable } from 'rxjs';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { filter, map, shareReplay } from 'rxjs/operators';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { filter } from 'rxjs/operators';
 import { LanguageSelectionComponent } from '@view/file-viewer/file-footer/language-selection/language-selection.component';
+import { isHandset } from '@core/responsive';
 
 @Component({
   selector: 'app-file-footer[file]',
@@ -20,10 +20,7 @@ export class FileFooterComponent implements OnInit {
     a.name.toLowerCase().localeCompare(b.name.toLowerCase())
   );
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(result => result.matches),
-    shareReplay(1)
-  );
+  readonly isHandset$ = isHandset(this.breakpointObserver);
 
   constructor(
     private breakpointObserver: BreakpointObserver,
