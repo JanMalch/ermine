@@ -1,6 +1,6 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
-import { WellFormingGuard } from './well-forming-guard.service';
+import { WellFormingGuard } from './well-forming.guard';
 
 describe('WellFormingGuard', () => {
   beforeEach(() => {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ViewComponent } from '@view/view/view.component';
-import { WellFormingGuard } from '@view/well-forming-guard.service';
+import { WellFormingGuard } from '@view/well-forming.guard';
 import { RepositoryResolver } from '@view/repository.resolver';
 import { RepositoryExistsGuard } from '@view/repository-exists.guard';
 

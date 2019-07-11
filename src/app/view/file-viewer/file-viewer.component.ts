@@ -1,10 +1,9 @@
-import { ChangeDetectorRef, Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Repository } from '@core/models';
-import { filter, mergeMap, startWith, tap } from 'rxjs/operators';
-import { File, FileOidQuery } from '@graphql/file-oid.query';
+import { filter, mergeMap, startWith } from 'rxjs/operators';
+import { File } from '@graphql/file-oid.query';
 import { TabInfo } from '@view/file-tabs/file-tabs.component';
-import { LoadingService } from '@view/loading.service';
 import { FileLoaderService } from '@view/file-loader.service';
 
 @Component({

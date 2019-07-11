@@ -6,7 +6,7 @@ import { TabInfo } from '@view/file-tabs/file-tabs.component';
 import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
 import { FileTreeComponent } from '@view/file-tree/file-tree.component';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { LoadingService } from '@view/loading.service';
+import { LoadingService } from '@core/loading.service';
 import { StyleService } from '@core/style.service';
 import { Title } from '@angular/platform-browser';
 import { FileLoaderService } from '@view/file-loader.service';

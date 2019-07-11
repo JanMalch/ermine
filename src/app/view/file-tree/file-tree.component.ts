@@ -12,7 +12,6 @@ import { TabInfo } from '@view/file-tabs/file-tabs.component';
 import { concatMap, first, map, mergeMap } from 'rxjs/operators';
 import { from, Observable, ReplaySubject } from 'rxjs';
 import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
-import { LoadingService } from '@view/loading.service';
 
 @Component({
   selector: 'app-file-tree[repository]',
@@ -31,7 +30,6 @@ export class FileTreeComponent implements OnInit {
     private treeQuery: TreeQuery,
     private database: DynamicDatabase,
     private oidResolver: OidResolverQuery,
-    private loader: LoadingService,
     private treeOidQuery: TreeOidQuery
   ) {
     // this.database.treeOidQuery = treeOidQuery;
@@ -71,7 +69,6 @@ export class FileTreeComponent implements OnInit {
         });
         this.initialLoadDone.next(true);
       });
-    this.dataSource.loading$.subscribe(val => this.loader.setLoading(val));
   }
 
   openFile(node: DynamicFlatNode) {

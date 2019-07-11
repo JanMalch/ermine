@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoadingService {
-  private loading = new BehaviorSubject<boolean>(false);
+  private readonly loading = new BehaviorSubject<boolean>(false);
 
   get loading$(): Observable<boolean> {
-    return this.loading.asObservable();
+    return this.loading.asObservable().pipe(throttleTime(10));
   }
 
   setLoading(value: boolean) {

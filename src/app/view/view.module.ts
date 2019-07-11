@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ViewRoutingModule } from './view-routing.module';
 import { ViewComponent } from './view/view.component';
-import { WellFormingGuard } from '@view/well-forming-guard.service';
+import { WellFormingGuard } from '@view/well-forming.guard';
 import { RepositoryExistsGuard } from '@view/repository-exists.guard';
 import { FileLoaderService } from '@view/file-loader.service';
 import { SharedModule } from '@shared/shared.module';
@@ -19,7 +19,6 @@ import { CodeRendererComponent } from './file-viewer/file-renderer/code-renderer
 import { PrismDirective } from './file-viewer/file-renderer/prism.directive';
 import { CsvComponent } from './file-viewer/file-renderer/csv.component';
 import { ImageRendererComponent } from './file-viewer/file-renderer/image-renderer.component';
-import { LoadingService } from '@view/loading.service';
 import { ClipboardModule } from 'ngx-clipboard';
 import { RenderCacheService } from '@view/file-viewer/file-renderer/render-cache.service';
 import { LanguageSelectionComponent } from './file-viewer/file-footer/language-selection/language-selection.component';
@@ -60,14 +59,7 @@ import { ScrollIntoViewDirective } from './file-viewer/file-footer/scroll-into-v
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [
-    WellFormingGuard,
-    RepositoryExistsGuard,
-    /*RepositoryResolver,*/
-    FileLoaderService,
-    LoadingService,
-    RenderCacheService
-  ],
+  providers: [WellFormingGuard, RepositoryExistsGuard, FileLoaderService, RenderCacheService],
   entryComponents: [LanguageSelectionComponent]
 })
 export class ViewModule {}
