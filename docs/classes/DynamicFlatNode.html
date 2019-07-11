@@ -637,8 +637,6 @@ export class DynamicDatabase {
 export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
   dataChange &#x3D; new BehaviorSubject&lt;DynamicFlatNode[]&gt;([]);
 
-  loading$ &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
-
   get data(): DynamicFlatNode[] {
     return this.dataChange.value;
   }
@@ -682,11 +680,6 @@ export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
    * Toggle the node, remove from display list
    */
   async toggleNode(node: DynamicFlatNode, expand: boolean) {
-    if (!this.database.areChildrenFetched(node.oid)) {
-      // node.isLoading &#x3D; true;
-      this.loading$.next(true);
-    }
-
     const parentPath &#x3D; node.path.length &#x3D;&#x3D;&#x3D; 0 ? node.item : node.path + &#x27;/&#x27; + node.item;
     const children &#x3D; await this.database.getChildren(node.oid, node.level, parentPath);
     const index &#x3D; this.data.indexOf(node);
@@ -710,12 +703,8 @@ export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
       this.data.splice(index + 1, count);
     }
 
-    // notify the change
-    /// this.dataChange.next(this.data);
-    // distinct by OID
+    // notify the change, distinct by OID
     this.data &#x3D; this.data.filter((v, i, a) &#x3D;&gt; a.findIndex(n &#x3D;&gt; n.oid &#x3D;&#x3D;&#x3D; v.oid) &#x3D;&#x3D;&#x3D; i);
-    // node.isLoading &#x3D; false;
-    this.loading$.next(false);
   }
 
   disconnect(collectionViewer: CollectionViewer): void {}
@@ -726,6 +715,7 @@ export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
 
 
 
+                   
 
 
 

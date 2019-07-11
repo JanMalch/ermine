@@ -89,9 +89,6 @@ structure.</p>
                             <li>
                                 <a href="#dataChange">dataChange</a>
                             </li>
-                            <li>
-                                <a href="#loading$">loading$</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -154,7 +151,7 @@ structure.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/app/view/file-tree/tree.control.ts:139</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/view/file-tree/tree.control.ts:137</a></div>
                             </td>
                         </tr>
 
@@ -231,8 +228,8 @@ structure.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="146"
-                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:146</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:144</a></div>
                 </td>
             </tr>
 
@@ -301,8 +298,8 @@ structure.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="211"
-                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:211</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:200</a></div>
                 </td>
             </tr>
 
@@ -371,8 +368,8 @@ structure.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="159"
-                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:159</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:157</a></div>
                 </td>
             </tr>
 
@@ -445,8 +442,8 @@ structure.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">src/app/view/file-tree/tree.control.ts:172</a></div>
                 </td>
             </tr>
 
@@ -539,32 +536,6 @@ structure.</p>
 
             </tbody>
         </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="loading$"></a>
-                        <span class="name">
-                            <b>
-                            loading$</b>
-                            <a href="#loading$"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new BehaviorSubject&lt;boolean&gt;(false)</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/view/file-tree/tree.control.ts:130</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
 </section>
 
             <section>
@@ -587,7 +558,7 @@ structure.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/view/file-tree/tree.control.ts:132</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/view/file-tree/tree.control.ts:130</a></div>
                                 </td>
                             </tr>
 
@@ -598,7 +569,7 @@ structure.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/app/view/file-tree/tree.control.ts:136</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/view/file-tree/tree.control.ts:134</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -774,8 +745,6 @@ export class DynamicDatabase {
 export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
   dataChange &#x3D; new BehaviorSubject&lt;DynamicFlatNode[]&gt;([]);
 
-  loading$ &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
-
   get data(): DynamicFlatNode[] {
     return this.dataChange.value;
   }
@@ -819,11 +788,6 @@ export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
    * Toggle the node, remove from display list
    */
   async toggleNode(node: DynamicFlatNode, expand: boolean) {
-    if (!this.database.areChildrenFetched(node.oid)) {
-      // node.isLoading &#x3D; true;
-      this.loading$.next(true);
-    }
-
     const parentPath &#x3D; node.path.length &#x3D;&#x3D;&#x3D; 0 ? node.item : node.path + &#x27;/&#x27; + node.item;
     const children &#x3D; await this.database.getChildren(node.oid, node.level, parentPath);
     const index &#x3D; this.data.indexOf(node);
@@ -847,12 +811,8 @@ export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
       this.data.splice(index + 1, count);
     }
 
-    // notify the change
-    /// this.dataChange.next(this.data);
-    // distinct by OID
+    // notify the change, distinct by OID
     this.data &#x3D; this.data.filter((v, i, a) &#x3D;&gt; a.findIndex(n &#x3D;&gt; n.oid &#x3D;&#x3D;&#x3D; v.oid) &#x3D;&#x3D;&#x3D; i);
-    // node.isLoading &#x3D; false;
-    this.loading$.next(false);
   }
 
   disconnect(collectionViewer: CollectionViewer): void {}
@@ -868,6 +828,7 @@ export class DynamicDataSource implements DataSource&lt;DynamicFlatNode&gt; {
 
 
 
+                   
 
 
 

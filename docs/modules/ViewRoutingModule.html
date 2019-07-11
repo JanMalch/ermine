@@ -72,9 +72,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
+import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { ViewComponent } from &#x27;@view/view/view.component&#x27;;
-import { WellFormingGuard } from &#x27;@view/well-forming-guard.service&#x27;;
+import { WellFormingGuard } from &#x27;@view/well-forming.guard&#x27;;
 import { RepositoryResolver } from &#x27;@view/repository.resolver&#x27;;
 import { RepositoryExistsGuard } from &#x27;@view/repository-exists.guard&#x27;;
 
@@ -110,6 +110,7 @@ export class ViewRoutingModule {}
 
 
 
+                   
 
 
 

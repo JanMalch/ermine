@@ -161,7 +161,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/core/auth.service.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/core/auth.service.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -250,8 +250,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/core/auth.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/core/auth.service.ts:71</a></div>
                 </td>
             </tr>
 
@@ -320,8 +320,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/app/core/auth.service.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/core/auth.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -359,7 +359,9 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new NetlifyAuthenticator()</code>
+                            <i>Default value : </i><code>new NetlifyAuthenticator({
+    site_id: &#x27;f2357bcb-5919-4809-96a2-5770e88d97db&#x27;
+  })</code>
                         </td>
                     </tr>
                         <tr>
@@ -396,7 +398,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/core/auth.service.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/core/auth.service.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -433,7 +435,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/core/auth.service.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/core/auth.service.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -470,7 +472,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/core/auth.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/auth.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -499,7 +501,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/core/auth.service.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/core/auth.service.ts:39</a></div>
                                 </td>
                             </tr>
 
@@ -521,7 +523,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/core/auth.service.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/auth.service.ts:43</a></div>
                                 </td>
                             </tr>
 
@@ -543,7 +545,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/core/auth.service.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/core/auth.service.ts:47</a></div>
                                 </td>
                             </tr>
 
@@ -565,7 +567,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/core/auth.service.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/auth.service.ts:51</a></div>
                                 </td>
                             </tr>
 
@@ -587,7 +589,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/core/auth.service.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/core/auth.service.ts:55</a></div>
                                 </td>
                             </tr>
 
@@ -598,20 +600,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { AuthOptions, NetlifyAuthenticator, Providers } from &#x27;@core/netlify-authenticator.rx&#x27;;
-import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
-import { catchError, map, mergeMap, tap } from &#x27;rxjs/operators&#x27;;
-import { of } from &#x27;rxjs/internal/observable/of&#x27;;
-import { UsernameQuery } from &#x27;@graphql/username.query&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
-import { Apollo } from &#x27;apollo-angular&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {AuthOptions, NetlifyAuthenticator, Providers} from &#x27;@core/netlify-authenticator.rx&#x27;;
+import {BehaviorSubject, Observable} from &#x27;rxjs&#x27;;
+import {catchError, map, mergeMap, tap} from &#x27;rxjs/operators&#x27;;
+import {of} from &#x27;rxjs/internal/observable/of&#x27;;
+import {UsernameQuery} from &#x27;@graphql/username.query&#x27;;
+import {Router} from &#x27;@angular/router&#x27;;
+import {Apollo} from &#x27;apollo-angular&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class AuthService {
-  private readonly authenticator &#x3D; new NetlifyAuthenticator();
+  private readonly authenticator &#x3D; new NetlifyAuthenticator({
+    site_id: &#x27;f2357bcb-5919-4809-96a2-5770e88d97db&#x27;
+  });
   private readonly extendedScope: AuthOptions &#x3D; {
     scope: &#x27;repo&#x27;,
     provider: Providers.GitHub
@@ -723,6 +727,7 @@ export interface AuthState {
 
 
 
+                   
 
 
 

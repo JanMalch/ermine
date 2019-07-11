@@ -483,19 +483,33 @@ export class ShowdownComponent {
                 <pre class="line-numbers"><code class="language-scss">app-showdown {
   display: block;
   padding: 32px;
-}
 
-app-showdown pre {
-  padding: 8px 16px;
-  border-radius: 3px;
-  background: #282b2e;
-}
+  &amp; pre {
+    padding: 8px 16px;
+    border-radius: 3px;
+    background: #282b2e;
+  }
 
-app-showdown :not(pre) &gt; code {
-  padding: 3px 4px;
-  border-radius: 2px;
-  margin: 0 2px;
-  background: rgba(255, 255, 255, 0.08);
+  &amp; :not(pre) &gt; code {
+    padding: 3px 4px;
+    border-radius: 2px;
+    margin: 0 2px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &amp; kbd {
+    background-color: #fafbfc;
+    border: 1px solid #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #959da5;
+    color: #444d56;
+    display: inline-block;
+    font-size: 11px;
+    line-height: 10px;
+    padding: 3px 5px;
+    vertical-align: middle;
+  }
 }
 </code></pre>
     </div>
@@ -541,6 +555,7 @@ app-showdown :not(pre) &gt; code {
 
 
 
+                   
 
 
 

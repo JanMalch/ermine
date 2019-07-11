@@ -223,20 +223,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { AuthOptions, NetlifyAuthenticator, Providers } from &#x27;@core/netlify-authenticator.rx&#x27;;
-import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
-import { catchError, map, mergeMap, tap } from &#x27;rxjs/operators&#x27;;
-import { of } from &#x27;rxjs/internal/observable/of&#x27;;
-import { UsernameQuery } from &#x27;@graphql/username.query&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
-import { Apollo } from &#x27;apollo-angular&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {AuthOptions, NetlifyAuthenticator, Providers} from &#x27;@core/netlify-authenticator.rx&#x27;;
+import {BehaviorSubject, Observable} from &#x27;rxjs&#x27;;
+import {catchError, map, mergeMap, tap} from &#x27;rxjs/operators&#x27;;
+import {of} from &#x27;rxjs/internal/observable/of&#x27;;
+import {UsernameQuery} from &#x27;@graphql/username.query&#x27;;
+import {Router} from &#x27;@angular/router&#x27;;
+import {Apollo} from &#x27;apollo-angular&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class AuthService {
-  private readonly authenticator &#x3D; new NetlifyAuthenticator();
+  private readonly authenticator &#x3D; new NetlifyAuthenticator({
+    site_id: &#x27;f2357bcb-5919-4809-96a2-5770e88d97db&#x27;
+  });
   private readonly extendedScope: AuthOptions &#x3D; {
     scope: &#x27;repo&#x27;,
     provider: Providers.GitHub
@@ -342,6 +344,7 @@ export interface AuthState {
 </div>
 
 
+                   
 
 
 

@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content guard">
+               <div class="content interceptor">
                    <div class="content-data">
 
 
@@ -38,10 +38,9 @@
 
 
 
-
 <ol class="breadcrumb">
-    <li>Guards</li>
-    <li>RepositoryExistsGuard</li>
+  <li>Interceptors</li>
+  <li>LoadingInterceptor</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -54,36 +53,20 @@
 </ul>
 
 <div class="tab-content">
-        <div class="tab-pane fade active in" id="c-info">
-            <p class="comment">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
             <h3>File</h3>
-            </p>
-            <p class="comment">
-                <code>src/app/view/repository-exists.guard.ts</code>
-            </p>
+        </p>
+        <p class="comment">
+            <code>src/app/core/loading.interceptor.ts</code>
+        </p>
 
 
 
-
-
-                <section>
+            <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#resolve">resolve</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -94,7 +77,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#canActivate">canActivate</a>
+                                <a href="#intercept">intercept</a>
                             </li>
                         </ul>
                     </td>
@@ -108,18 +91,18 @@
     </table>
 </section>
 
-                <section>
+            <section>
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(existenceQuery: <a href="../injectables/ExistenceQuery.html">ExistenceQuery</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(loadingService: <a href="../injectables/LoadingService.html">LoadingService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/view/repository-exists.guard.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/core/loading.interceptor.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -137,22 +120,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>existenceQuery</td>
+                                                        <td>loadingService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/ExistenceQuery.html" target="_self" >ExistenceQuery</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="../injectables/LoadingService.html" target="_self" >LoadingService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -169,7 +140,7 @@
         </table>
 </section>
 
-                <section>
+            <section>
     
     <h3 id="methods">
         Methods
@@ -178,26 +149,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="canActivate"></a>
+                    <a name="intercept"></a>
                     <span class="name">
                         <b>
-                            canActivate
+                            intercept
                         </b>
-                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
+                        <a href="#intercept"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>canActivate(next: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank">ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank">RouterStateSnapshot</a>)</code>
+<code>intercept(req: HttpRequest<any>, next: <a href="https://angular.io/api/common/http/HttpHandler" target="_blank">HttpHandler</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/view/repository-exists.guard.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/core/loading.interceptor.ts:19</a></div>
                 </td>
             </tr>
 
@@ -217,9 +188,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>next</td>
+                                    <td>req</td>
                                     <td>
-                                                <code><a href="https://angular.io/api/router/ActivatedRouteSnapshot" target="_blank" >ActivatedRouteSnapshot</a></code>
+                                            <code>HttpRequest&lt;any&gt;</code>
                                     </td>
 
                                     <td>
@@ -229,9 +200,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>state</td>
+                                    <td>next</td>
                                     <td>
-                                                <code><a href="https://angular.io/api/router/RouterStateSnapshot" target="_blank" >RouterStateSnapshot</a></code>
+                                                <code><a href="https://angular.io/api/common/http/HttpHandler" target="_blank" >HttpHandler</a></code>
                                     </td>
 
                                     <td>
@@ -246,7 +217,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;boolean | UrlTree&gt;</code>
+                        <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -257,58 +228,52 @@
         </tbody>
     </table>
 </section>
-        </div>
+
+    </div>
 
 
-        <div class="tab-pane fade  tab-source-code" id="c-source">
-            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { LoadingService } from &#x27;@core/loading.service&#x27;;
 import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree
-} from &#x27;@angular/router&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { RepositoryResolver } from &#x27;@view/repository.resolver&#x27;;
-import { Repository } from &#x27;@core/models&#x27;;
-import { applyMixins } from &#x27;@core/mixins&#x27;;
-import { ExistenceQuery } from &#x27;@graphql/existence.query&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from &#x27;@angular/common/http&#x27;;
+import { Observable, throwError } from &#x27;rxjs&#x27;;
+import { catchError, tap } from &#x27;rxjs/operators&#x27;;
 
-@Injectable()
-export class RepositoryExistsGuard implements CanActivate, RepositoryResolver {
-  resolve: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) &#x3D;&gt; Repository;
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class LoadingInterceptor implements HttpInterceptor {
+  constructor(private loadingService: LoadingService) {}
 
-  constructor(private existenceQuery: ExistenceQuery, private router: Router) {}
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    if (!req.url.startsWith(&#x27;https://api.github.com/graphql&#x27;)) {
+      return next.handle(req);
+    }
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable&lt;boolean | UrlTree&gt; {
-    const repository &#x3D; this.resolve(next, state);
-    return this.existenceQuery
-      .fetchMapped({
-        owner: repository.owner,
-        name: repository.name,
-        branch: repository.branch
+    this.loadingService.setLoading(true);
+    return next.handle(req).pipe(
+      tap(event &#x3D;&gt; {
+        if (event instanceof HttpResponse) {
+          this.loadingService.setLoading(false);
+        }
+      }),
+      catchError(err &#x3D;&gt; {
+        this.loadingService.setLoading(false);
+        return throwError(err);
       })
-      .pipe(
-        map(result &#x3D;&gt;
-          result.exists
-            ? true
-            : this.router.createUrlTree([&#x27;/select&#x27;], {
-                queryParams: { ...repository }
-              })
-        )
-      );
+    );
   }
 }
-
-applyMixins(RepositoryExistsGuard, [RepositoryResolver]);
 </code></pre>
-        </div>
+    </div>
 </div>
+
 
 
 
@@ -335,8 +300,8 @@ applyMixins(RepositoryExistsGuard, [RepositoryResolver]);
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
-            var COMPODOC_CURRENT_PAGE_URL = 'RepositoryExistsGuard.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoadingInterceptor.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

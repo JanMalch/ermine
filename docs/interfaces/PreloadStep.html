@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/view/file-tree/directory-preloader.service.ts</code>
+            <code>src/app/view/file-tree/file-tree.component.ts</code>
         </p>
 
 
@@ -229,23 +229,107 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { from, Observable, Subject } from &#x27;rxjs&#x27;;
-import { OidResolverQuery } from &#x27;@graphql/oid-resolver-query.service&#x27;;
-import { concatMap, map } from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+import { TreeQuery } from &#x27;@graphql/tree.query&#x27;;
 import { Repository } from &#x27;@core/models&#x27;;
+import { FlatTreeControl } from &#x27;@angular/cdk/tree&#x27;;
+import {
+  DynamicDatabase,
+  DynamicDataSource,
+  DynamicFlatNode
+} from &#x27;@view/file-tree/tree.control&#x27;;
+import { TreeOidQuery } from &#x27;@graphql/tree-oid.query&#x27;;
+import { TabInfo } from &#x27;@view/file-tabs/file-tabs.component&#x27;;
+import { concatMap, first, map, mergeMap } from &#x27;rxjs/operators&#x27;;
+import { from, Observable, ReplaySubject } from &#x27;rxjs&#x27;;
+import { OidResolverQuery } from &#x27;@graphql/oid-resolver-query.service&#x27;;
 
-@Injectable()
-export class DirectoryPreloaderService {
-  fetchOid &#x3D; new Subject&lt;PreloadStep&gt;();
+@Component({
+  selector: &#x27;app-file-tree[repository]&#x27;,
+  templateUrl: &#x27;./file-tree.component.html&#x27;,
+  styleUrls: [&#x27;./file-tree.component.scss&#x27;],
+  providers: [DynamicDatabase]
+})
+export class FileTreeComponent implements OnInit {
+  private readonly initialLoadDone &#x3D; new ReplaySubject&lt;true&gt;(1);
 
-  get fetchOid$(): Observable&lt;PreloadStep&gt; {
-    return this.fetchOid.asObservable();
+  @Input() repository: Repository;
+
+  @Output() fileSelected &#x3D; new EventEmitter&lt;TabInfo&gt;();
+
+  constructor(
+    private treeQuery: TreeQuery,
+    private database: DynamicDatabase,
+    private oidResolver: OidResolverQuery,
+    private treeOidQuery: TreeOidQuery
+  ) {
+    // this.database.treeOidQuery &#x3D; treeOidQuery;
+    this.treeControl &#x3D; new FlatTreeControl&lt;DynamicFlatNode&gt;(this.getLevel, this.isExpandable);
+    this.dataSource &#x3D; new DynamicDataSource(this.treeControl, this.database);
+
+    this.dataSource.data &#x3D; []; //  database.initialData();
   }
 
-  constructor(private oidResolver: OidResolverQuery) {}
+  treeControl: FlatTreeControl&lt;DynamicFlatNode&gt;;
 
-  preload(directory: string, repository: Repository): Observable&lt;PreloadStep&gt; {
+  dataSource: DynamicDataSource;
+
+  getLevel &#x3D; (node: DynamicFlatNode) &#x3D;&gt; node.level;
+
+  isExpandable &#x3D; (node: DynamicFlatNode) &#x3D;&gt; node.expandable;
+
+  hasChild &#x3D; (_: number, nodeData: DynamicFlatNode) &#x3D;&gt; nodeData.expandable;
+
+  ngOnInit() {
+    this.database.init(this.repository, this.treeOidQuery);
+    this.treeQuery
+      .fetchMapped({
+        owner: this.repository.owner,
+        name: this.repository.name,
+        expression: this.repository.branch + &#x27;:&#x27;
+      })
+      .subscribe(result &#x3D;&gt; {
+        this.dataSource.data &#x3D; result.map(node &#x3D;&gt; {
+          return new DynamicFlatNode(
+            node.name,
+            node.object.oid,
+            node.type,
+            0,
+            node.type &#x3D;&#x3D;&#x3D; &#x27;tree&#x27;
+          );
+        });
+        this.initialLoadDone.next(true);
+      });
+  }
+
+  openFile(node: DynamicFlatNode) {
+    this.fileSelected.emit({
+      oid: node.oid,
+      fileName: node.item,
+      fullPath: node.path
+    });
+  }
+
+  preloadDirectory(path: string) {
+    if (path.endsWith(&#x27;/&#x27;)) {
+      path &#x3D; path.slice(0, -1);
+    }
+    this.initialLoadDone
+      .pipe(
+        first(),
+        mergeMap(() &#x3D;&gt; this.resolveOids(path)),
+        concatMap((step: PreloadStep) &#x3D;&gt; {
+          let node &#x3D; this.dataSource.data.find(n &#x3D;&gt; n.oid &#x3D;&#x3D;&#x3D; step.oid);
+          if (!node) {
+            node &#x3D; this.dataSource.data.find(n &#x3D;&gt; n.associatedOids.includes(step.oid));
+          }
+          return from(this.dataSource.toggleNode(node, true));
+        })
+      )
+      .subscribe();
+  }
+
+  private resolveOids(directory: string): Observable&lt;PreloadStep&gt; {
     const fragments &#x3D; directory.split(&#x27;/&#x27;);
     const paths &#x3D; fragments.map((_, i) &#x3D;&gt; fragments.slice(0, i + 1).join(&#x27;/&#x27;));
 
@@ -255,16 +339,17 @@ export class DirectoryPreloaderService {
       concatMap(path &#x3D;&gt;
         this.oidResolver
           .fetchMapped({
-            owner: repository.owner,
-            name: repository.name,
-            expression: &#x60;${repository.branch}:${path}&#x60;
+            owner: this.repository.owner,
+            name: this.repository.name,
+            expression: &#x60;${this.repository.branch}:${path}&#x60;
           })
           .pipe(
             map(resolved &#x3D;&gt; {
               const step: PreloadStep &#x3D; {
                 oid: resolved.oid,
                 parentPath,
-                level
+                level,
+                path
               };
               parentPath &#x3D; path;
               level++;
@@ -287,6 +372,7 @@ export interface PreloadStep {
 </div>
 
 
+                   
 
 
 

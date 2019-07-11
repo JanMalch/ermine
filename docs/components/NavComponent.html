@@ -161,6 +161,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#autoWidth">autoWidth</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
@@ -286,6 +289,45 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="autoWidth"></a>
+                    <span class="name">
+                        <b>
+                            autoWidth
+                        </b>
+                        <a href="#autoWidth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>autoWidth()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/core/nav/nav.component.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -549,7 +591,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/core/nav/nav.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/core/nav/nav.component.ts:55</a></div>
                                 </td>
                             </tr>
 
@@ -610,6 +652,10 @@ export class NavComponent implements OnInit {
       });
   }
 
+  autoWidth() {
+    this.width &#x3D; document.querySelector(&quot;app-file-tree&quot;).clientWidth + 10;
+  }
+
   get onViewUrl(): boolean {
     return location.pathname.startsWith(&#x27;/view&#x27;);
   }
@@ -666,6 +712,7 @@ export class NavComponent implements OnInit {
 &lt;app-drag-sizer
   *ngIf&#x3D;&quot;!(isHandset$ | async)&quot;
   (xPos)&#x3D;&quot;width &#x3D; $event&quot;
+  (dblclick)&#x3D;&quot;autoWidth()&quot;
   [style.left.px]&#x3D;&quot;width - 2&quot;
 &gt;&lt;/app-drag-sizer&gt;
 
@@ -843,7 +890,7 @@ export class NavComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav    #drawer    class="sidenav"    [style.width.px]="width"    fixedInViewport="true"    [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"    [mode]="(isHandset$ | async) ? \'over\' : \'side\'"    [opened]="!(isHandset$ | async)"  >    <mat-toolbar>      <ng-container *receiveTemplate="\'menu-title\'">        Ermine      </ng-container>    </mat-toolbar>    <mat-nav-list>      <ng-container *receiveTemplate="\'nav-list\'"></ng-container>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content [style.margin-left.px]="width">    <mat-toolbar color="primary">      <button        id="mobile-toggle"        type="button"        aria-label="Open sidenav"        mat-icon-button        (click)="drawer.toggle()"        *ngIf="(isHandset$ | async) && onViewUrl"      >        <mat-icon aria-label="Side nav toggle icon" svgIcon="menu"></mat-icon>      </button>      <div style="flex: 1">        <ng-container *receiveTemplate="\'toolbar-title\'"></ng-container>      </div>      <ng-container *ngIf="isHandset$ | async; else desktopMenu">        <button mat-icon-button [matMenuTriggerFor]="mobileMenu" aria-label="Open app menu">          <mat-icon svgIcon="dots-vertical"></mat-icon>        </button>      </ng-container>    </mat-toolbar>    <ng-content></ng-content>  </mat-sidenav-content></mat-sidenav-container><app-drag-sizer  *ngIf="!(isHandset$ | async)"  (xPos)="width = $event"  [style.left.px]="width - 2"></app-drag-sizer><ng-template #desktopMenu>  <a    mat-icon-button    title="Select Repository / Branch"    routerLink="/select"    routerLinkActive="active"    queryParamsHandling="merge"  >    <mat-icon svgIcon="swap-horizontal"></mat-icon>  </a>  <a mat-icon-button title="Toggle selection trap" (click)="copyMode.toggle()">    <mat-icon      [svgIcon]="        (copyMode.copyTrapEnabled$ | async)          ? \'clipboard-check-outline\'          : \'clipboard-alert-outline\'      "    ></mat-icon>  </a>  <a    mat-icon-button    title="Home"    routerLinkActive="active"    routerLink="/"    [routerLinkActiveOptions]="{ exact: true }"  >    <mat-icon svgIcon="home-outline"></mat-icon>  </a>  <a mat-icon-button title="About Ermine" routerLinkActive="active" routerLink="/about">    <mat-icon svgIcon="information-outline"></mat-icon>  </a>  <a    mat-icon-button    title="Logout"    [disabled]="!(auth.isLoggedIn$ | async)"    (click)="auth.logout()"  >    <mat-icon svgIcon="logout-variant"></mat-icon>  </a></ng-template><mat-menu #mobileMenu="matMenu">  <a    mat-menu-item    title="Select Repository / Branch"    routerLink="/select"    queryParamsHandling="merge"  >    <mat-icon svgIcon="swap-horizontal"></mat-icon>    Select Repository / Branch  </a>  <a mat-menu-item title="Toggle selection trap" (click)="copyMode.toggle()">    <mat-icon      [svgIcon]="        (copyMode.copyTrapEnabled$ | async)          ? \'clipboard-check-outline\'          : \'clipboard-alert-outline\'      "    ></mat-icon>    Toggle selection trap  </a>  <mat-divider></mat-divider>  <a mat-menu-item title="Home" routerLink="/">    <mat-icon svgIcon="home-outline"></mat-icon>    Home  </a>  <a mat-menu-item title="About Ermine" routerLink="/about">    <mat-icon svgIcon="information-outline"></mat-icon>    About Ermine  </a>  <mat-divider></mat-divider>  <a    mat-menu-item    title="Logout"    [disabled]="!(auth.isLoggedIn$ | async)"    (click)="auth.logout()"  >    <mat-icon svgIcon="logout-variant"></mat-icon>    Logout  </a></mat-menu></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav    #drawer    class="sidenav"    [style.width.px]="width"    fixedInViewport="true"    [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"    [mode]="(isHandset$ | async) ? \'over\' : \'side\'"    [opened]="!(isHandset$ | async)"  >    <mat-toolbar>      <ng-container *receiveTemplate="\'menu-title\'">        Ermine      </ng-container>    </mat-toolbar>    <mat-nav-list>      <ng-container *receiveTemplate="\'nav-list\'"></ng-container>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content [style.margin-left.px]="width">    <mat-toolbar color="primary">      <button        id="mobile-toggle"        type="button"        aria-label="Open sidenav"        mat-icon-button        (click)="drawer.toggle()"        *ngIf="(isHandset$ | async) && onViewUrl"      >        <mat-icon aria-label="Side nav toggle icon" svgIcon="menu"></mat-icon>      </button>      <div style="flex: 1">        <ng-container *receiveTemplate="\'toolbar-title\'"></ng-container>      </div>      <ng-container *ngIf="isHandset$ | async; else desktopMenu">        <button mat-icon-button [matMenuTriggerFor]="mobileMenu" aria-label="Open app menu">          <mat-icon svgIcon="dots-vertical"></mat-icon>        </button>      </ng-container>    </mat-toolbar>    <ng-content></ng-content>  </mat-sidenav-content></mat-sidenav-container><app-drag-sizer  *ngIf="!(isHandset$ | async)"  (xPos)="width = $event"  (dblclick)="autoWidth()"  [style.left.px]="width - 2"></app-drag-sizer><ng-template #desktopMenu>  <a    mat-icon-button    title="Select Repository / Branch"    routerLink="/select"    routerLinkActive="active"    queryParamsHandling="merge"  >    <mat-icon svgIcon="swap-horizontal"></mat-icon>  </a>  <a mat-icon-button title="Toggle selection trap" (click)="copyMode.toggle()">    <mat-icon      [svgIcon]="        (copyMode.copyTrapEnabled$ | async)          ? \'clipboard-check-outline\'          : \'clipboard-alert-outline\'      "    ></mat-icon>  </a>  <a    mat-icon-button    title="Home"    routerLinkActive="active"    routerLink="/"    [routerLinkActiveOptions]="{ exact: true }"  >    <mat-icon svgIcon="home-outline"></mat-icon>  </a>  <a mat-icon-button title="About Ermine" routerLinkActive="active" routerLink="/about">    <mat-icon svgIcon="information-outline"></mat-icon>  </a>  <a    mat-icon-button    title="Logout"    [disabled]="!(auth.isLoggedIn$ | async)"    (click)="auth.logout()"  >    <mat-icon svgIcon="logout-variant"></mat-icon>  </a></ng-template><mat-menu #mobileMenu="matMenu">  <a    mat-menu-item    title="Select Repository / Branch"    routerLink="/select"    queryParamsHandling="merge"  >    <mat-icon svgIcon="swap-horizontal"></mat-icon>    Select Repository / Branch  </a>  <a mat-menu-item title="Toggle selection trap" (click)="copyMode.toggle()">    <mat-icon      [svgIcon]="        (copyMode.copyTrapEnabled$ | async)          ? \'clipboard-check-outline\'          : \'clipboard-alert-outline\'      "    ></mat-icon>    Toggle selection trap  </a>  <mat-divider></mat-divider>  <a mat-menu-item title="Home" routerLink="/">    <mat-icon svgIcon="home-outline"></mat-icon>    Home  </a>  <a mat-menu-item title="About Ermine" routerLink="/about">    <mat-icon svgIcon="information-outline"></mat-icon>    About Ermine  </a>  <mat-divider></mat-divider>  <a    mat-menu-item    title="Logout"    [disabled]="!(auth.isLoggedIn$ | async)"    (click)="auth.logout()"  >    <mat-icon svgIcon="logout-variant"></mat-icon>    Logout  </a></mat-menu></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BranchSelectorComponent', 'selector': 'app-branch-selector'},{'name': 'CodeRendererComponent', 'selector': 'app-code-renderer[text][language]'},{'name': 'CsvComponent', 'selector': 'app-csv'},{'name': 'DragSizerComponent', 'selector': 'app-drag-sizer'},{'name': 'FileFooterComponent', 'selector': 'app-file-footer[file]'},{'name': 'FileRendererComponent', 'selector': 'app-file-renderer[file]'},{'name': 'FileTabsComponent', 'selector': 'app-file-tabs[files][activeOid]'},{'name': 'FileTreeComponent', 'selector': 'app-file-tree[repository]'},{'name': 'FileViewerComponent', 'selector': 'app-file-viewer[file][repository]'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageRendererComponent', 'selector': 'app-image-renderer[repository]'},{'name': 'LanguageSelectionComponent', 'selector': 'app-language-selection'},{'name': 'LoginChoiceComponent', 'selector': 'app-login-choice[extendedScope]'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'SelectComponent', 'selector': 'app-select'},{'name': 'SelectFormComponent', 'selector': 'app-select-form'},{'name': 'ShowdownComponent', 'selector': 'app-showdown'},{'name': 'ViewComponent', 'selector': 'app-view'}];
     var DIRECTIVES = [{'name': 'PrismDirective', 'selector': '[prism]'},{'name': 'ScrollIntoViewDirective', 'selector': '[appScrollIntoView]'}];
     var ACTUAL_COMPONENT = {'name': 'NavComponent'};
@@ -859,6 +906,7 @@ export class NavComponent implements OnInit {
 
 
 
+                   
 
 
 

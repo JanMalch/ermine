@@ -57,7 +57,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/view/loading.service.ts</code>
+            <code>src/app/core/loading.service.ts</code>
         </p>
 
 
@@ -77,6 +77,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#loading">loading</a>
                             </li>
                         </ul>
@@ -148,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/view/loading.service.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/core/loading.service.ts:15</a></div>
                 </td>
             </tr>
 
@@ -210,6 +211,7 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
+                                <span class="modifier">Readonly</span>
                             loading</b>
                             <a href="#loading"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -222,7 +224,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/view/loading.service.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/loading.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -251,7 +253,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/view/loading.service.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/loading.service.ts:11</a></div>
                                 </td>
                             </tr>
 
@@ -264,13 +266,16 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { throttleTime } from &#x27;rxjs/operators&#x27;;
 
-@Injectable()
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
 export class LoadingService {
-  private loading &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
+  private readonly loading &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
 
   get loading$(): Observable&lt;boolean&gt; {
-    return this.loading.asObservable();
+    return this.loading.asObservable().pipe(throttleTime(10));
   }
 
   setLoading(value: boolean) {
@@ -288,6 +293,7 @@ export class LoadingService {
 
 
 
+                   
 
 
 

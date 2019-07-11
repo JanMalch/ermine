@@ -419,6 +419,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -432,6 +433,8 @@
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                 </tr>
                                 <tr>
@@ -444,6 +447,9 @@
                                         No
                                     </td>
 
+                                    <td>
+                                        <code>&#x27;plain&#x27;</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -826,7 +832,7 @@ export class PrismDirective implements OnInit {
     this.collapser &#x3D; new Collapser(this.codeEl);
   }
 
-  private highlight(code: string, language: string) {
+  private highlight(code: string, language: string &#x3D; &#x27;plain&#x27;) {
     if (!!this.collapser) {
       this.collapser.ngOnDestroy();
     }
@@ -869,6 +875,7 @@ export class PrismDirective implements OnInit {
 
 
 
+                   
 
 
 
