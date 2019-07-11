@@ -2,14 +2,7 @@ import gql from 'graphql-tag';
 import { MappingQuery } from './mapping-query';
 import { ApolloQueryResult } from 'apollo-client';
 import { Injectable } from '@angular/core';
-
-function treeSort(a: Entry, b: Entry) {
-  if (a.type !== b.type) {
-    return a.type === 'tree' ? -1 : 1;
-  }
-
-  return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
+import { treeSort } from './tree.query';
 
 export interface Variables {
   name: string;

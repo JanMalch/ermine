@@ -3,7 +3,7 @@ import { MappingQuery } from './mapping-query';
 import { ApolloQueryResult } from 'apollo-client';
 import { Injectable } from '@angular/core';
 
-function treeSort(a: Entry, b: Entry) {
+export function treeSort(a: Entry, b: Entry) {
   if (a.type !== b.type) {
     return a.type === 'tree' ? -1 : 1;
   }
