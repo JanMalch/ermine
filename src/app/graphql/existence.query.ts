@@ -9,11 +9,12 @@ export interface Variables {
   name: string;
   owner: string;
   branch: string;
+  expression?: string;
 }
 
 export interface Result {
   repository: {
-    ref: string | null;
+    object: string | null;
   };
 }
 
@@ -27,10 +28,10 @@ export interface ExistenceResult {
 })
 export class ExistenceQuery extends MappingQuery<ExistenceResult, Result, Variables> {
   document = gql`
-    query ExistenceQuery($name: String!, $owner: String!, $branch: String!) {
+    query ExistenceQuery($name: String!, $owner: String!, $expression: String!) {
       repository(name: $name, owner: $owner) {
-        ref(qualifiedName: $branch) {
-          name
+        object(expression: $expression) {
+          oid
         }
       }
     }
@@ -41,7 +42,13 @@ export class ExistenceQuery extends MappingQuery<ExistenceResult, Result, Variab
     options?: WatchQueryOptions<Variables>
   ): Observable<ExistenceResult> {
     return super
-      .watchMapped(variables, options)
+      .watchMapped(
+        {
+          expression: `${variables.branch}:`,
+          ...variables
+        },
+        options
+      )
       .pipe(catchError(err => this.recoverError(err)));
   }
 
@@ -50,7 +57,13 @@ export class ExistenceQuery extends MappingQuery<ExistenceResult, Result, Variab
     options?: QueryOptions<Variables>
   ): Observable<ExistenceResult> {
     return super
-      .fetchMapped(variables, options)
+      .fetchMapped(
+        {
+          expression: `${variables.branch}:`,
+          ...variables
+        },
+        options
+      )
       .pipe(catchError(err => this.recoverError(err)));
   }
 
@@ -72,7 +85,7 @@ export class ExistenceQuery extends MappingQuery<ExistenceResult, Result, Variab
         error: 'Unable to read repository.'
       };
     }
-    const exists = result.data.repository.ref !== null;
+    const exists = result.data.repository.object !== null;
     return {
       exists,
       error: exists ? undefined : 'Branch does not exist.'
