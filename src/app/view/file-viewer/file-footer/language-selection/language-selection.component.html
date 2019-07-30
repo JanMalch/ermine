@@ -2,13 +2,13 @@
 <form>
   <mat-form-field class="full-width">
     <input
-      type="text"
+      (keyup.enter)="onEnter()"
+      [formControl]="filterText"
+      [placeholder]="'Filter ' + languageCount + ' languages'"
+      [title]="'Filter ' + languageCount + ' languages'"
       autocomplete="off"
       matInput
-      [title]="'Filter ' + languageCount + ' languages'"
-      [placeholder]="'Filter ' + languageCount + ' languages'"
-      [formControl]="filterText"
-      (keyup.enter)="onEnter()"
+      type="text"
     />
     <mat-icon matSuffix svgIcon="filter"></mat-icon>
   </mat-form-field>
@@ -19,15 +19,15 @@
     <h3 mat-subheader>{{ group.letter }}</h3>
 
     <mat-list-item
-      *ngFor="let lang of group.languages; trackBy: trackByLangFn"
       (click)="setLanguage(lang.id)"
+      *ngFor="let lang of group.languages; trackBy: trackByLangFn"
     >
       <mat-icon
-        mat-list-icon
         [color]="selectedLang === lang.id ? 'primary' : undefined"
         [svgIcon]="selectedLang === lang.id ? 'radiobox-marked' : 'radiobox-blank'"
+        mat-list-icon
       ></mat-icon>
-      <h4 mat-line [appScrollIntoView]="selectedLang === lang.id">{{ lang.name }}</h4>
+      <h4 [appScrollIntoView]="selectedLang === lang.id" mat-line>{{ lang.name }}</h4>
     </mat-list-item>
   </ng-container>
 </mat-nav-list>

@@ -14,10 +14,6 @@ export class CopyModeService {
   private readonly disableMessage =
     'Selection trap has been disabled. You can select everything now.';
 
-  get copyTrapEnabled$(): Observable<boolean> {
-    return this.copyTrapEnabled.asObservable();
-  }
-
   constructor(private snackBar: MatSnackBar, rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
     this.copyTrapEnabled.pipe(skip(1)).subscribe(enabled => {
@@ -30,6 +26,10 @@ export class CopyModeService {
         this.renderer.removeClass(document.body, 'selection-trap');
       }
     });
+  }
+
+  get copyTrapEnabled$(): Observable<boolean> {
+    return this.copyTrapEnabled.asObservable();
   }
 
   toggle() {

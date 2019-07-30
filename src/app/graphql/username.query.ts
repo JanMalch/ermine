@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import gql from 'graphql-tag';
-import { ApolloQueryResult } from 'apollo-client';
 import { MappingQuery } from '@graphql/mapping-query';
+import { ApolloQueryResult } from 'apollo-client';
+import gql from 'graphql-tag';
 
 export interface Result {
   viewer: {

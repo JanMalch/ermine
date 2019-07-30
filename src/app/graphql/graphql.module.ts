@@ -1,12 +1,13 @@
+import { HttpHeaders } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { setContext } from 'apollo-link-context';
 import { from } from 'apollo-link';
-import { HttpHeaders } from '@angular/common/http';
+import { setContext } from 'apollo-link-context';
 
 const uri = 'https://api.github.com/graphql';
+
 export function createApollo(httpLink: HttpLink) {
   const http = httpLink.create({ uri });
 

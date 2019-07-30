@@ -1,16 +1,16 @@
-import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
-import { Repository } from '@core/models';
-import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { TabInfo } from '@view/file-tabs/file-tabs.component';
-import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
-import { FileTreeComponent } from '@view/file-tree/file-tree.component';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { LoadingService } from '@core/loading.service';
-import { StyleService } from '@core/style.service';
+import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { LoadingService } from '@core/loading.service';
+import { Repository } from '@core/models';
+import { StyleService } from '@core/style.service';
+import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
 import { FileLoaderService } from '@view/file-loader.service';
+import { TabInfo } from '@view/file-tabs/file-tabs.component';
+import { FileTreeComponent } from '@view/file-tree/file-tree.component';
 import { RenderCacheService } from '@view/file-viewer/file-renderer/render-cache.service';
+import { BehaviorSubject } from 'rxjs';
 
 export const loadingBarAnimation = trigger('loadingBar', [
   transition(':enter', [
@@ -32,18 +32,8 @@ export const loadingBarAnimation = trigger('loadingBar', [
 export class ViewComponent implements AfterViewInit, OnDestroy {
   repository: Repository;
   currentFile$ = new BehaviorSubject<TabInfo>(null);
-
-  get currentOid(): string {
-    return this.currentFile$.getValue().oid;
-  }
-
-  private openFileMap = new Map<string, TabInfo>();
-
   @ViewChild(FileTreeComponent) fileTree: FileTreeComponent;
-
-  get openFiles(): TabInfo[] {
-    return Array.from(this.openFileMap.values());
-  }
+  private openFileMap = new Map<string, TabInfo>();
 
   constructor(
     public loader: LoadingService,
@@ -54,6 +44,14 @@ export class ViewComponent implements AfterViewInit, OnDestroy {
     private renderCache: RenderCacheService,
     private title: Title
   ) {}
+
+  get currentOid(): string {
+    return this.currentFile$.getValue().oid;
+  }
+
+  get openFiles(): TabInfo[] {
+    return Array.from(this.openFileMap.values());
+  }
 
   ngAfterViewInit() {
     this.repository = this.route.snapshot.data.repository;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MappingQuery } from '@graphql/mapping-query';
-import gql from 'graphql-tag';
 import { ApolloQueryResult, QueryOptions, WatchQueryOptions } from 'apollo-client';
+import gql from 'graphql-tag';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 

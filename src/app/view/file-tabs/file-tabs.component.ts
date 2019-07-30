@@ -7,8 +7,8 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { StyleService } from '@core/style.service';
 import { MatTabGroup } from '@angular/material';
+import { StyleService } from '@core/style.service';
 
 @Component({
   selector: 'app-file-tabs[files][activeOid]',
@@ -18,6 +18,11 @@ import { MatTabGroup } from '@angular/material';
 })
 export class FileTabsComponent implements OnInit {
   @Input() files: TabInfo[] = [];
+  @Output() fileSelected = new EventEmitter<TabInfo>();
+  @Output() fileClosed = new EventEmitter<string>();
+  @ViewChild(MatTabGroup) matTabGroup: MatTabGroup;
+
+  constructor(private styleService: StyleService) {}
 
   @Input() set activeOid(value: string) {
     const activeIndex = this.files.findIndex(info => info.oid === value);
@@ -26,13 +31,6 @@ export class FileTabsComponent implements OnInit {
       this.matTabGroup.realignInkBar();
     }
   }
-
-  @Output() fileSelected = new EventEmitter<TabInfo>();
-  @Output() fileClosed = new EventEmitter<string>();
-
-  @ViewChild(MatTabGroup) matTabGroup: MatTabGroup;
-
-  constructor(private styleService: StyleService) {}
 
   ngOnInit() {
     this.styleService.updateTabHeader();

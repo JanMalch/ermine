@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatAutocompleteTrigger } from '@angular/material';
 import { BranchQuery } from '@graphql/branches.query';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
-import { catchError, filter, map, startWith, tap } from 'rxjs/operators';
-import { MatAutocompleteTrigger } from '@angular/material';
+import { catchError, map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-branch-selector',

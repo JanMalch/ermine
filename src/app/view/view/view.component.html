@@ -1,7 +1,7 @@
 <app-file-viewer
   *ngIf="currentFile$ | async as cOid"
-  [repository]="repository"
   [file]="cOid"
+  [repository]="repository"
 ></app-file-viewer>
 
 <img
@@ -12,8 +12,6 @@
 
 <ng-container *sendTemplate="'menu-title'">
   <a
-    mat-button
-    title="Open on GitHub"
     [href]="
       'https://github.com/' +
       repository.owner +
@@ -22,29 +20,31 @@
       '/tree/' +
       repository.branch
     "
+    mat-button
     style="flex: 1; overflow: hidden; text-overflow: ellipsis;"
+    title="Open on GitHub"
   >
     <span>{{ repository.owner }}/{{ repository.name }}/{{ repository.branch }}</span>
-    <mat-icon svgIcon="github-circle" style="margin-left: 4px;"></mat-icon>
+    <mat-icon style="margin-left: 4px;" svgIcon="github-circle"></mat-icon>
   </a>
 </ng-container>
 
 <ng-container *sendTemplate="'toolbar-title'">
   <app-file-tabs
-    [files]="openFiles"
-    [activeOid]="(currentFile$ | async)?.oid"
-    (fileSelected)="onFileSelected($event)"
     (fileClosed)="onFileClosed($event)"
+    (fileSelected)="onFileSelected($event)"
+    [activeOid]="(currentFile$ | async)?.oid"
+    [files]="openFiles"
   ></app-file-tabs>
 </ng-container>
 <ng-container *sendTemplate="'nav-list'">
   <mat-progress-bar
-    mode="indeterminate"
     *ngIf="loader.loading$ | async"
     [@loadingBar]
+    mode="indeterminate"
   ></mat-progress-bar>
   <app-file-tree
-    [repository]="repository"
     (fileSelected)="onFileSelected($event)"
+    [repository]="repository"
   ></app-file-tree>
 </ng-container>

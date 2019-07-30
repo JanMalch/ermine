@@ -2,10 +2,10 @@
   <app-showdown *ngSwitchCase="'markdown'" [text]="file.text"></app-showdown>
   <app-code-renderer
     *ngSwitchCase="'code'"
-    [oid]="file.oid"
     [isLargeFile]="file.isLargeFile"
-    [text]="file.text"
     [language]="file.language.id"
+    [oid]="file.oid"
+    [text]="file.text"
   ></app-code-renderer>
   <app-csv *ngSwitchCase="'csv'" [text]="file.text"></app-csv>
   <app-image-renderer

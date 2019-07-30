@@ -1,14 +1,14 @@
-import gql from 'graphql-tag';
-import { MappingQuery } from './mapping-query';
-import { ApolloQueryResult, QueryOptions, WatchQueryOptions } from 'apollo-client';
-import { Injectable } from '@angular/core';
-import { getLanguageForFile } from '@prism/prism.languages-util';
-import { PrismLanguage } from '@prism/prism.languages';
-import { Repository } from '@core/models';
-import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Repository } from '@core/models';
+import { PrismLanguage } from '@prism/prism.languages';
+import { getLanguageForFile } from '@prism/prism.languages-util';
 import { Apollo } from 'apollo-angular';
+import { ApolloQueryResult, QueryOptions, WatchQueryOptions } from 'apollo-client';
+import gql from 'graphql-tag';
+import { Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { MappingQuery } from './mapping-query';
 
 export interface Variables {
   name: string;
@@ -43,10 +43,6 @@ function isLargeFile(file: File): boolean {
   providedIn: 'root'
 })
 export class FileQuery extends MappingQuery<File, Result, Variables> {
-  constructor(apollo: Apollo, private http: HttpClient) {
-    super(apollo);
-  }
-
   document = gql`
     query FileQuery($name: String!, $owner: String!, $expression: String!) {
       repository(name: $name, owner: $owner) {
@@ -62,38 +58,8 @@ export class FileQuery extends MappingQuery<File, Result, Variables> {
     }
   `;
 
-  protected mapper(result: ApolloQueryResult<Result>, variables: Variables): File {
-    const file = !!result.data.repository.object ? result.data.repository.object : undefined;
-    if (file === undefined) {
-      return file;
-    }
-
-    const [branch, ...remainder] = variables.expression.split(':');
-    const fullPath = remainder.join('');
-    const pathElements = fullPath.split('/');
-    const path = pathElements.slice(0, -1).join('/');
-    const name = pathElements.pop();
-    const language = getLanguageForFile(name);
-    const handler = variables.expression.endsWith('csv')
-      ? 'csv'
-      : variables.expression.endsWith('md')
-      ? 'markdown'
-      : 'code';
-
-    return {
-      ...file,
-      handler,
-      repository: {
-        name: variables.name,
-        owner: variables.owner,
-        branch,
-        path: fullPath
-      },
-      dirPath: path,
-      name,
-      language,
-      isLargeFile: isLargeFile(file)
-    };
+  constructor(apollo: Apollo, private http: HttpClient) {
+    super(apollo);
   }
 
   watchMapped(
@@ -135,6 +101,40 @@ export class FileQuery extends MappingQuery<File, Result, Variables> {
           };
         })
       );
+  }
+
+  protected mapper(result: ApolloQueryResult<Result>, variables: Variables): File {
+    const file = !!result.data.repository.object ? result.data.repository.object : undefined;
+    if (file === undefined) {
+      return file;
+    }
+
+    const [branch, ...remainder] = variables.expression.split(':');
+    const fullPath = remainder.join('');
+    const pathElements = fullPath.split('/');
+    const path = pathElements.slice(0, -1).join('/');
+    const name = pathElements.pop();
+    const language = getLanguageForFile(name);
+    const handler = variables.expression.endsWith('csv')
+      ? 'csv'
+      : variables.expression.endsWith('md')
+      ? 'markdown'
+      : 'code';
+
+    return {
+      ...file,
+      handler,
+      repository: {
+        name: variables.name,
+        owner: variables.owner,
+        branch,
+        path: fullPath
+      },
+      dirPath: path,
+      name,
+      language,
+      isLargeFile: isLargeFile(file)
+    };
   }
 }
 

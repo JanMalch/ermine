@@ -6,11 +6,11 @@ import {
   RouterStateSnapshot,
   UrlTree
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { RepositoryResolver } from '@view/repository.resolver';
-import { Repository } from '@core/models';
 import { applyMixins } from '@core/mixins';
+import { Repository } from '@core/models';
 import { ExistenceQuery } from '@graphql/existence.query';
+import { RepositoryResolver } from '@view/repository.resolver';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()

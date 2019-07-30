@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, Renderer2, ViewEncapsulation } from '@angular/core';
-import { ShowdownConverter } from 'ngx-showdown';
 import { highlightAllUnder } from '@prism/prism.languages-util';
+import { ShowdownConverter } from 'ngx-showdown';
 
 @Component({
   selector: 'app-showdown',
@@ -11,18 +11,18 @@ import { highlightAllUnder } from '@prism/prism.languages-util';
 export class ShowdownComponent {
   private readonly el: HTMLElement;
 
-  @Input() set text(val: string) {
-    const html = this.showdown.makeHtml(val);
-    this.renderer.setProperty(this.el, 'innerHTML', html);
-    this.highlight();
-  }
-
   constructor(
     elRef: ElementRef,
     private renderer: Renderer2,
     private showdown: ShowdownConverter
   ) {
     this.el = elRef.nativeElement;
+  }
+
+  @Input() set text(val: string) {
+    const html = this.showdown.makeHtml(val);
+    this.renderer.setProperty(this.el, 'innerHTML', html);
+    this.highlight();
   }
 
   private highlight() {

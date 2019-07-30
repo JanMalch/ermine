@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { SelectComponent } from '@select/select/select.component';
 import { RepositoryResolver } from '@view/repository.resolver';
 

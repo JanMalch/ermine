@@ -1,17 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TreeQuery } from '@graphql/tree.query';
-import { Repository } from '@core/models';
 import { FlatTreeControl } from '@angular/cdk/tree';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Repository } from '@core/models';
+import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
+import { TreeOidQuery } from '@graphql/tree-oid.query';
+import { TreeQuery } from '@graphql/tree.query';
+import { TabInfo } from '@view/file-tabs/file-tabs.component';
 import {
   DynamicDatabase,
   DynamicDataSource,
   DynamicFlatNode
 } from '@view/file-tree/tree.control';
-import { TreeOidQuery } from '@graphql/tree-oid.query';
-import { TabInfo } from '@view/file-tabs/file-tabs.component';
-import { concatMap, first, map, mergeMap } from 'rxjs/operators';
 import { from, Observable, ReplaySubject } from 'rxjs';
-import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
+import { concatMap, first, map, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-file-tree[repository]',
@@ -20,11 +20,11 @@ import { OidResolverQuery } from '@graphql/oid-resolver-query.service';
   providers: [DynamicDatabase]
 })
 export class FileTreeComponent implements OnInit {
-  private readonly initialLoadDone = new ReplaySubject<true>(1);
-
   @Input() repository: Repository;
-
   @Output() fileSelected = new EventEmitter<TabInfo>();
+  treeControl: FlatTreeControl<DynamicFlatNode>;
+  dataSource: DynamicDataSource;
+  private readonly initialLoadDone = new ReplaySubject<true>(1);
 
   constructor(
     private treeQuery: TreeQuery,
@@ -38,10 +38,6 @@ export class FileTreeComponent implements OnInit {
 
     this.dataSource.data = []; //  database.initialData();
   }
-
-  treeControl: FlatTreeControl<DynamicFlatNode>;
-
-  dataSource: DynamicDataSource;
 
   getLevel = (node: DynamicFlatNode) => node.level;
 

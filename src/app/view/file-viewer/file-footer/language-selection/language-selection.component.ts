@@ -1,14 +1,14 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { File } from '@graphql/file-oid.query';
+import { FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { File } from '@graphql/file-oid.query';
+import { PrismLanguage } from '@prism/prism.languages';
 import {
-  LetterGroup,
   languageLetterGroups,
+  LetterGroup,
   totalLanguageCount
 } from '@prism/prism.languages-util';
-import { FormControl } from '@angular/forms';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { PrismLanguage } from '@prism/prism.languages';
 import { debounceTime, map, startWith, takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -17,13 +17,11 @@ import { debounceTime, map, startWith, takeUntil } from 'rxjs/operators';
   styleUrls: ['./language-selection.component.scss']
 })
 export class LanguageSelectionComponent implements OnInit, OnDestroy {
-  private readonly onDestroy$ = new Subject<void>();
-
   readonly selectedLang = this.activeFile.language.id; // this.getActiveFile().language;
   readonly languageCount = totalLanguageCount;
-
   readonly filterText = new FormControl();
   readonly filteredLanguages$ = new BehaviorSubject<LetterGroup[]>(undefined);
+  private readonly onDestroy$ = new Subject<void>();
 
   constructor(
     private dialogRef: MatDialogRef<LanguageSelectionComponent>,
@@ -40,8 +38,6 @@ export class LanguageSelectionComponent implements OnInit, OnDestroy {
       )
       .subscribe(value => this.filteredLanguages$.next(value));
   }
-
-  private readonly fits = (a: string, b: string) => a.toLowerCase().includes(b.toLowerCase());
 
   filter(text: string): LetterGroup[] {
     if (text === '') {
@@ -84,4 +80,6 @@ export class LanguageSelectionComponent implements OnInit, OnDestroy {
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }
+
+  private readonly fits = (a: string, b: string) => a.toLowerCase().includes(b.toLowerCase());
 }

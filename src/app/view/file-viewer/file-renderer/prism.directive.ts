@@ -1,33 +1,22 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { combineLatest, Subject } from 'rxjs';
 import { highlightAllUnder } from '@prism/prism.languages-util';
-import { RenderCacheService } from '@view/file-viewer/file-renderer/render-cache.service';
 import { Collapser } from '@view/file-viewer/file-renderer/collapser';
+import { RenderCacheService } from '@view/file-viewer/file-renderer/render-cache.service';
+import { combineLatest, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Directive({
   selector: '[prism]' // tslint:disable-line:directive-selector
 })
 export class PrismDirective implements OnInit {
-  private readonly el: HTMLElement;
-
-  private text$ = new Subject<string>();
-  private language$ = new Subject<string>();
-
-  private currentLang: string;
-  private collapser: Collapser;
-
-  @Input('text') set text(val: string) {
-    this.text$.next(val);
-  }
-
-  @Input('language') set language(val: string) {
-    this.language$.next(val);
-  }
-
   @Input() oid: string;
   @Input() codeEl: HTMLElement;
   @Input() cacheEnabled: boolean;
+  private readonly el: HTMLElement;
+  private text$ = new Subject<string>();
+  private language$ = new Subject<string>();
+  private currentLang: string;
+  private collapser: Collapser;
 
   constructor(
     elRef: ElementRef,
@@ -42,6 +31,14 @@ export class PrismDirective implements OnInit {
     )
       .pipe(debounceTime(50))
       .subscribe(([code, language]) => this.highlight(code, language));
+  }
+
+  @Input('text') set text(val: string) {
+    this.text$.next(val);
+  }
+
+  @Input('language') set language(val: string) {
+    this.language$.next(val);
   }
 
   ngOnInit(): void {

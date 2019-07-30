@@ -1,5 +1,3 @@
-import { Injectable } from '@angular/core';
-import { LoadingService } from '@core/loading.service';
 import {
   HttpEvent,
   HttpHandler,
@@ -7,6 +5,8 @@ import {
   HttpRequest,
   HttpResponse
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { LoadingService } from '@core/loading.service';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 

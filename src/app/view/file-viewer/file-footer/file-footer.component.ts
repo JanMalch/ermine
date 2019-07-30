@@ -1,11 +1,11 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { isHandset } from '@core/responsive';
 import { determineHandler, File } from '@graphql/file-oid.query';
 import { prismLanguages } from '@prism/prism.languages';
-import { MatDialog, MatSnackBar } from '@angular/material';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { filter } from 'rxjs/operators';
 import { LanguageSelectionComponent } from '@view/file-viewer/file-footer/language-selection/language-selection.component';
-import { isHandset } from '@core/responsive';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-file-footer[file]',
@@ -28,8 +28,6 @@ export class FileFooterComponent implements OnInit {
     private matSnackBar: MatSnackBar
   ) {}
 
-  ngOnInit() {}
-
   get copyContent(): string {
     const { owner, name, branch, path } = this.file.repository;
     return `https://ermine.netlify.com/view?url=${owner}/${name}/blob/${branch}/${path}`;
@@ -44,6 +42,8 @@ export class FileFooterComponent implements OnInit {
     const { owner, name, branch, path } = this.file.repository;
     return `https://raw.githubusercontent.com/${owner}/${name}/${branch}/${path}`;
   }
+
+  ngOnInit() {}
 
   setLanguage(id: string) {
     this.file.language = this.languages.find(lang => lang.id === id);

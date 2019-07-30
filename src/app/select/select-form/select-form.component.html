@@ -1,7 +1,7 @@
-<form [formGroup]="repoForm" (ngSubmit)="submit()" novalidate>
+<form (ngSubmit)="submit()" [formGroup]="repoForm" novalidate>
   <mat-card style="display: inline-block;">
     <mat-card-header>
-      <mat-icon svgIcon="github-circle" mat-card-avatar></mat-icon>
+      <mat-icon mat-card-avatar svgIcon="github-circle"></mat-icon>
       <mat-card-title>Select a GitHub repository</mat-card-title>
       <mat-card-subtitle
         >Scope:
@@ -11,13 +11,13 @@
     <mat-card-content>
       <mat-form-field appearance="fill">
         <mat-label>Owner</mat-label>
-        <input matInput type="text" formControlName="owner" required />
+        <input formControlName="owner" matInput required type="text" />
         <mat-icon matPrefix svgIcon="account-circle"></mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput type="text" formControlName="name" required />
+        <input formControlName="name" matInput required type="text" />
         <mat-icon matPrefix svgIcon="database"></mat-icon>
       </mat-form-field>
 
@@ -26,20 +26,20 @@
 
     <mat-card-actions>
       <button
-        mat-raised-button
-        color="primary"
-        type="submit"
         [disabled]="repoForm.invalid || loading"
+        color="primary"
+        mat-raised-button
+        type="submit"
       >
         Select
       </button>
       <button
-        mat-raised-button
-        color="primary"
-        type="button"
-        [title]="historyString"
-        [disabled]="!historyAvailable || loading"
         (click)="setLastValues()"
+        [disabled]="!historyAvailable || loading"
+        [title]="historyString"
+        color="primary"
+        mat-raised-button
+        type="button"
       >
         <mat-icon svgIcon="history"></mat-icon>
       </button>

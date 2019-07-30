@@ -12,8 +12,8 @@ import { isHandset } from '@core/responsive';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements OnInit {
-  private repository: Repository;
   readonly isHandset$ = isHandset(this.breakpointObserver);
+  private repository: Repository;
 
   constructor(
     private breakpointObserver: BreakpointObserver,

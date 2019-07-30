@@ -5,7 +5,7 @@
     Ermine is a simple web app that allows you to browse any GitHub repository in an IDE look.
   </p>
 
-  <a mat-raised-button color="accent" routerLink="/select">
+  <a color="accent" mat-raised-button routerLink="/select">
     Select a repository
   </a>
 </section>
@@ -17,8 +17,8 @@
     </p>
     <details>
       <summary title="Click to expand"
-        >{{ languages.length }} languages are supported!</summary
-      >
+        >{{ languages.length }} languages are supported!
+      </summary>
       <ul>
         <li *ngFor="let lang of languages">
           {{ lang.name
@@ -35,7 +35,7 @@
     </p>
     <p>
       For bonus convenience add this
-      <a href="https://en.wikipedia.org/wiki/Bookmarklet" target="_blank" rel="noopener"
+      <a href="https://en.wikipedia.org/wiki/Bookmarklet" rel="noopener" target="_blank"
         >bookmarklet</a
       >
       to open the GitHub repository in your current tab here on Ermine!

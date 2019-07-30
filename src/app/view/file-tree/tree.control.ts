@@ -1,10 +1,10 @@
 import { CollectionViewer, DataSource, SelectionChange } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Injectable } from '@angular/core';
+import { Repository } from '@core/models';
+import { Entry, TreeOidQuery } from '@graphql/tree-oid.query';
 import { BehaviorSubject, merge, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Entry, TreeOidQuery } from '@graphql/tree-oid.query';
-import { Repository } from '@core/models';
 
 export class DynamicFlatNode {
   public associatedOids: string[] = [];
@@ -101,6 +101,10 @@ export class DynamicDatabase {
     return this.dataMap.has(oid);
   }
 
+  isExpandable(node: string): boolean {
+    return this.dataMap.has(node);
+  }
+
   private async fetchEntries(oid: string): Promise<Entry[]> {
     return this.treeOidQuery
       .fetchMapped({
@@ -109,10 +113,6 @@ export class DynamicDatabase {
         oid
       })
       .toPromise();
-  }
-
-  isExpandable(node: string): boolean {
-    return this.dataMap.has(node);
   }
 }
 
@@ -127,6 +127,11 @@ export class DynamicDatabase {
 export class DynamicDataSource implements DataSource<DynamicFlatNode> {
   dataChange = new BehaviorSubject<DynamicFlatNode[]>([]);
 
+  constructor(
+    private treeControl: FlatTreeControl<DynamicFlatNode>,
+    private database: DynamicDatabase
+  ) {}
+
   get data(): DynamicFlatNode[] {
     return this.dataChange.value;
   }
@@ -135,11 +140,6 @@ export class DynamicDataSource implements DataSource<DynamicFlatNode> {
     this.treeControl.dataNodes = value;
     this.dataChange.next(value);
   }
-
-  constructor(
-    private treeControl: FlatTreeControl<DynamicFlatNode>,
-    private database: DynamicDatabase
-  ) {}
 
   connect(collectionViewer: CollectionViewer): Observable<DynamicFlatNode[]> {
     this.treeControl.expansionModel.changed.subscribe(

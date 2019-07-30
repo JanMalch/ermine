@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { prismLanguages } from '../../prism/prism.languages';
 import { Title } from '@angular/platform-browser';
+import { prismLanguages } from '../../prism/prism.languages';
 
 @Component({
   selector: 'app-home',

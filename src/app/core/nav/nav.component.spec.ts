@@ -1,6 +1,5 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatIconModule,
@@ -8,6 +7,7 @@ import {
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavComponent } from './nav.component';
 

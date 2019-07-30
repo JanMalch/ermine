@@ -5,6 +5,16 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class StyleService {
+  closeDrawer$ = new Subject();
+  private readonly renderer: Renderer2;
+
+  constructor(rendererFactory: RendererFactory2) {
+    this.renderer = rendererFactory.createRenderer(null, null);
+  }
+
+  // tslint:disable-next-line:variable-name
+  private _navWidth = 300;
+
   get navWidth(): number {
     return this._navWidth;
   }
@@ -12,16 +22,6 @@ export class StyleService {
   set navWidth(value: number) {
     this._navWidth = value;
     this.updateTabHeader();
-  }
-
-  // tslint:disable-next-line:variable-name
-  private _navWidth = 300;
-  closeDrawer$ = new Subject();
-
-  private readonly renderer: Renderer2;
-
-  constructor(rendererFactory: RendererFactory2) {
-    this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   updateTabHeader() {

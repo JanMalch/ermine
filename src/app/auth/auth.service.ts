@@ -18,9 +18,13 @@ export class AuthService {
     token: undefined,
     username: undefined
   };
-
+  readonly authState$ = new BehaviorSubject<AuthState>({
+    extended: localStorage.getItem('scope') === 'extended',
+    loggedIn: !!localStorage.getItem('token'),
+    token: localStorage.getItem('token') || null,
+    username: undefined
+  });
   private readonly authenticator = new NetlifyAuthenticator();
-
   private readonly extendedScope: AuthOptions = {
     scope: 'repo',
     provider: Providers.GitHub
@@ -29,13 +33,6 @@ export class AuthService {
     scope: '',
     provider: Providers.GitHub
   };
-
-  readonly authState$ = new BehaviorSubject<AuthState>({
-    extended: localStorage.getItem('scope') === 'extended',
-    loggedIn: !!localStorage.getItem('token'),
-    token: localStorage.getItem('token') || null,
-    username: undefined
-  });
 
   constructor(
     private usernameQuery: UsernameQuery,

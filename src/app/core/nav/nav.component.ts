@@ -14,16 +14,7 @@ import { filter, mergeMap } from 'rxjs/operators';
   encapsulation: ViewEncapsulation.None
 })
 export class NavComponent implements OnInit {
-  get width(): number {
-    return this.styleService.navWidth;
-  }
-
-  set width(value: number) {
-    this.styleService.navWidth = value;
-  }
-
   readonly isHandset$ = isHandset(this.breakpointObserver);
-
   @ViewChild('drawer') drawer: MatSidenav;
 
   constructor(
@@ -32,6 +23,18 @@ export class NavComponent implements OnInit {
     public auth: AuthService,
     private styleService: StyleService
   ) {}
+
+  get width(): number {
+    return this.styleService.navWidth;
+  }
+
+  set width(value: number) {
+    this.styleService.navWidth = value;
+  }
+
+  get onViewUrl(): boolean {
+    return location.pathname.startsWith('/view');
+  }
 
   ngOnInit(): void {
     this.styleService.closeDrawer$
@@ -46,9 +49,5 @@ export class NavComponent implements OnInit {
 
   autoWidth() {
     this.width = document.querySelector('app-file-tree').clientWidth + 10;
-  }
-
-  get onViewUrl(): boolean {
-    return location.pathname.startsWith('/view');
   }
 }

@@ -1,7 +1,7 @@
 <section>
   <mat-card class="example-card">
     <mat-card-header>
-      <mat-icon svgIcon="account-key" mat-card-avatar></mat-icon>
+      <mat-icon mat-card-avatar svgIcon="account-key"></mat-icon>
       <mat-card-title>Login</mat-card-title>
       <mat-card-subtitle>Sign in with GitHub</mat-card-subtitle>
     </mat-card-header>
@@ -28,12 +28,12 @@
     </mat-card-content>
     <mat-card-actions>
       <app-login-choice
-        [extendedScope]="true"
         (success)="onSuccess($event)"
+        [extendedScope]="true"
       ></app-login-choice>
       <app-login-choice
-        [extendedScope]="false"
         (success)="onSuccess($event)"
+        [extendedScope]="false"
       ></app-login-choice>
     </mat-card-actions>
   </mat-card>

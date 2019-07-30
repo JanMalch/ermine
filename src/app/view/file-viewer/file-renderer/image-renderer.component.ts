@@ -42,14 +42,14 @@ export class ImageRendererComponent implements OnInit {
 
   imageLoaded = false;
 
+  constructor() {}
+
   get imageSrc(): string {
     // tslint:disable-next-line:max-line-length
     return `https://raw.githubusercontent.com/${this.repository.owner}/${
       this.repository.name
     }/${this.repository.branch}/${this.repository.path}`;
   }
-
-  constructor() {}
 
   ngOnInit() {}
 }

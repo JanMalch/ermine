@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Repository } from '@core/models';
-import { filter, mergeMap, startWith } from 'rxjs/operators';
 import { File } from '@graphql/file-oid.query';
-import { TabInfo } from '@view/file-tabs/file-tabs.component';
 import { FileLoaderService } from '@view/file-loader.service';
+import { TabInfo } from '@view/file-tabs/file-tabs.component';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, mergeMap, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-file-viewer[file][repository]',
@@ -13,16 +13,14 @@ import { FileLoaderService } from '@view/file-loader.service';
 })
 export class FileViewerComponent implements OnInit {
   file$: Observable<File>;
-
+  @Input() repository: Repository;
   private fileChange$ = new BehaviorSubject<TabInfo>(null);
+
+  constructor(private fileLoader: FileLoaderService) {}
 
   @Input() set file(value: TabInfo) {
     this.fileChange$.next(value);
   }
-
-  @Input() repository: Repository;
-
-  constructor(private fileLoader: FileLoaderService) {}
 
   ngOnInit() {
     this.file$ = this.fileChange$.pipe(

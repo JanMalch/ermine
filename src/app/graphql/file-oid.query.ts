@@ -1,14 +1,14 @@
-import gql from 'graphql-tag';
-import { MappingQuery } from './mapping-query';
-import { ApolloQueryResult, QueryOptions, WatchQueryOptions } from 'apollo-client';
-import { Injectable } from '@angular/core';
-import { getLanguageForFile } from '../prism/prism.languages-util';
-import { PrismLanguage } from '../prism/prism.languages';
-import { Repository } from '@core/models';
-import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Repository } from '@core/models';
 import { Apollo } from 'apollo-angular';
+import { ApolloQueryResult, QueryOptions, WatchQueryOptions } from 'apollo-client';
+import gql from 'graphql-tag';
+import { Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { PrismLanguage } from '../prism/prism.languages';
+import { getLanguageForFile } from '../prism/prism.languages-util';
+import { MappingQuery } from './mapping-query';
 
 export function determineHandler(languageId: string): 'csv' | 'markdown' | 'code' {
   switch (languageId) {
@@ -57,10 +57,6 @@ function isLargeFile(file: File): boolean {
   providedIn: 'root'
 })
 export class FileOidQuery extends MappingQuery<File, Result, Variables> {
-  constructor(apollo: Apollo, private http: HttpClient) {
-    super(apollo);
-  }
-
   document = gql`
     query FileQuery($name: String!, $owner: String!, $oid: GitObjectID!) {
       repository(name: $name, owner: $owner) {
@@ -76,36 +72,8 @@ export class FileOidQuery extends MappingQuery<File, Result, Variables> {
     }
   `;
 
-  protected mapper(result: ApolloQueryResult<Result>, variables: Variables): File {
-    const file = !!result.data.repository.object ? result.data.repository.object : undefined;
-    if (file === undefined) {
-      return file;
-    }
-
-    const language = getLanguageForFile(variables.fileName);
-    /*const handler = variables.fileName.endsWith("csv") ? "csv"
-      : variables.fileName.endsWith("md") ? "markdown" : "code";
-*/
-    const handler = determineHandler(language.id);
-    const fullPath =
-      variables.dirPath.length === 0
-        ? variables.fileName
-        : variables.dirPath + '/' + variables.fileName;
-
-    return {
-      ...file,
-      handler,
-      repository: {
-        name: variables.name,
-        owner: variables.owner,
-        branch: variables.branch,
-        path: fullPath
-      },
-      dirPath: variables.dirPath,
-      name: variables.fileName,
-      language,
-      isLargeFile: isLargeFile(file)
-    };
+  constructor(apollo: Apollo, private http: HttpClient) {
+    super(apollo);
   }
 
   watchMapped(
@@ -147,6 +115,38 @@ export class FileOidQuery extends MappingQuery<File, Result, Variables> {
           };
         })
       );
+  }
+
+  protected mapper(result: ApolloQueryResult<Result>, variables: Variables): File {
+    const file = !!result.data.repository.object ? result.data.repository.object : undefined;
+    if (file === undefined) {
+      return file;
+    }
+
+    const language = getLanguageForFile(variables.fileName);
+    /*const handler = variables.fileName.endsWith("csv") ? "csv"
+      : variables.fileName.endsWith("md") ? "markdown" : "code";
+*/
+    const handler = determineHandler(language.id);
+    const fullPath =
+      variables.dirPath.length === 0
+        ? variables.fileName
+        : variables.dirPath + '/' + variables.fileName;
+
+    return {
+      ...file,
+      handler,
+      repository: {
+        name: variables.name,
+        owner: variables.owner,
+        branch: variables.branch,
+        path: fullPath
+      },
+      dirPath: variables.dirPath,
+      name: variables.fileName,
+      language,
+      isLargeFile: isLargeFile(file)
+    };
   }
 }
 
