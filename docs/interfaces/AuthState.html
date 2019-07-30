@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/auth.service.ts</code>
+            <code>src/app/auth/auth.service.ts</code>
         </p>
 
 
@@ -223,22 +223,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
-import {AuthOptions, NetlifyAuthenticator, Providers} from &#x27;@core/netlify-authenticator.rx&#x27;;
-import {BehaviorSubject, Observable} from &#x27;rxjs&#x27;;
-import {catchError, map, mergeMap, tap} from &#x27;rxjs/operators&#x27;;
-import {of} from &#x27;rxjs/internal/observable/of&#x27;;
-import {UsernameQuery} from &#x27;@graphql/username.query&#x27;;
-import {Router} from &#x27;@angular/router&#x27;;
-import {Apollo} from &#x27;apollo-angular&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { UsernameQuery } from &#x27;@graphql/username.query&#x27;;
+import { Apollo } from &#x27;apollo-angular&#x27;;
+import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { of } from &#x27;rxjs/internal/observable/of&#x27;;
+import { catchError, map, mergeMap } from &#x27;rxjs/operators&#x27;;
+import { AuthModule } from &#x27;./auth.module&#x27;;
+import { AuthOptions, NetlifyAuthenticator, Providers } from &#x27;./netlify-authenticator.rx&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: AuthModule
 })
 export class AuthService {
-  private readonly authenticator &#x3D; new NetlifyAuthenticator({
-    site_id: &#x27;f2357bcb-5919-4809-96a2-5770e88d97db&#x27;
-  });
+  static readonly LOGGED_OUT_STATE: AuthState &#x3D; {
+    extended: false,
+    loggedIn: false,
+    token: undefined,
+    username: undefined
+  };
+
+  private readonly authenticator &#x3D; new NetlifyAuthenticator();
+
   private readonly extendedScope: AuthOptions &#x3D; {
     scope: &#x27;repo&#x27;,
     provider: Providers.GitHub
@@ -248,7 +255,7 @@ export class AuthService {
     provider: Providers.GitHub
   };
 
-  readonly authState &#x3D; new BehaviorSubject&lt;AuthState&gt;({
+  readonly authState$ &#x3D; new BehaviorSubject&lt;AuthState&gt;({
     extended: localStorage.getItem(&#x27;scope&#x27;) &#x3D;&#x3D;&#x3D; &#x27;extended&#x27;,
     loggedIn: !!localStorage.getItem(&#x27;token&#x27;),
     token: localStorage.getItem(&#x27;token&#x27;) || null,
@@ -261,28 +268,8 @@ export class AuthService {
     private apollo: Apollo
   ) {}
 
-  get isLoggedIn$(): Observable&lt;boolean&gt; {
-    return this.authState.asObservable().pipe(map(state &#x3D;&gt; state.loggedIn));
-  }
-
-  get username$(): Observable&lt;string&gt; {
-    return this.authState.asObservable().pipe(map(state &#x3D;&gt; state.username));
-  }
-
-  get authState$(): Observable&lt;AuthState&gt; {
-    return this.authState.asObservable();
-  }
-
-  get token$(): Observable&lt;string | undefined&gt; {
-    return this.authState.asObservable().pipe(map(state &#x3D;&gt; state.token));
-  }
-
-  get isExtendedScope$(): Observable&lt;boolean&gt; {
-    return this.authState.asObservable().pipe(map(state &#x3D;&gt; state.extended));
-  }
-
   logout() {
-    this.authState.next({
+    this.authState$.next({
       extended: false,
       loggedIn: false,
       token: undefined,
@@ -301,34 +288,24 @@ export class AuthService {
         catchError(err &#x3D;&gt; {
           localStorage.setItem(&#x27;token&#x27;, null);
           localStorage.setItem(&#x27;scope&#x27;, null);
-          return of({
-            extended,
-            loggedIn: false,
-            token: undefined,
-            username: undefined
-          });
+          return of({ ...AuthService.LOGGED_OUT_STATE, extended });
         }),
-        tap(res &#x3D;&gt; {
+        mergeMap(res &#x3D;&gt; {
           localStorage.setItem(&#x27;token&#x27;, res.token);
           localStorage.setItem(&#x27;scope&#x27;, extended ? &#x27;extended&#x27; : &#x27;basic&#x27;);
+          return this.usernameQuery
+            .fetchMapped()
+            .pipe(map(username &#x3D;&gt; ({ ...res, username })));
         }),
-        mergeMap(res &#x3D;&gt;
-          this.usernameQuery.fetchMapped().pipe(
-            map(username &#x3D;&gt; ({
-              ...res,
-              username
-            }))
-          )
-        ),
-        tap(res &#x3D;&gt;
-          this.authState.next({
+        mergeMap(res &#x3D;&gt; {
+          this.authState$.next({
             extended,
             loggedIn: true,
             token: res.token,
             username: res.username
-          })
-        ),
-        mergeMap(() &#x3D;&gt; this.authState$)
+          });
+          return this.authState$;
+        })
       );
   }
 }

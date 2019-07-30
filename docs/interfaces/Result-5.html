@@ -131,14 +131,7 @@
 import { MappingQuery } from &#x27;./mapping-query&#x27;;
 import { ApolloQueryResult } from &#x27;apollo-client&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-
-function treeSort(a: Entry, b: Entry) {
-  if (a.type !&#x3D;&#x3D; b.type) {
-    return a.type &#x3D;&#x3D;&#x3D; &#x27;tree&#x27; ? -1 : 1;
-  }
-
-  return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
+import { treeSort } from &#x27;./tree.query&#x27;;
 
 export interface Variables {
   name: string;

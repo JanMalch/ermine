@@ -155,8 +155,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">src/app/graphql/tree-oid.query.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/graphql/tree-oid.query.ts:51</a></div>
                 </td>
             </tr>
 
@@ -515,7 +515,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/graphql/tree-oid.query.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/graphql/tree-oid.query.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -532,14 +532,7 @@
 import { MappingQuery } from &#x27;./mapping-query&#x27;;
 import { ApolloQueryResult } from &#x27;apollo-client&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-
-function treeSort(a: Entry, b: Entry) {
-  if (a.type !&#x3D;&#x3D; b.type) {
-    return a.type &#x3D;&#x3D;&#x3D; &#x27;tree&#x27; ? -1 : 1;
-  }
-
-  return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-}
+import { treeSort } from &#x27;./tree.query&#x27;;
 
 export interface Variables {
   name: string;

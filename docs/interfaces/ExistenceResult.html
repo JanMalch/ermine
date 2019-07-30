@@ -170,11 +170,12 @@ export interface Variables {
   name: string;
   owner: string;
   branch: string;
+  expression?: string;
 }
 
 export interface Result {
   repository: {
-    ref: string | null;
+    object: string | null;
   };
 }
 
@@ -188,10 +189,10 @@ export interface ExistenceResult {
 })
 export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Variables&gt; {
   document &#x3D; gql&#x60;
-    query ExistenceQuery($name: String!, $owner: String!, $branch: String!) {
+    query ExistenceQuery($name: String!, $owner: String!, $expression: String!) {
       repository(name: $name, owner: $owner) {
-        ref(qualifiedName: $branch) {
-          name
+        object(expression: $expression) {
+          oid
         }
       }
     }
@@ -202,7 +203,13 @@ export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Var
     options?: WatchQueryOptions&lt;Variables&gt;
   ): Observable&lt;ExistenceResult&gt; {
     return super
-      .watchMapped(variables, options)
+      .watchMapped(
+        {
+          expression: &#x60;${variables.branch}:&#x60;,
+          ...variables
+        },
+        options
+      )
       .pipe(catchError(err &#x3D;&gt; this.recoverError(err)));
   }
 
@@ -211,7 +218,13 @@ export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Var
     options?: QueryOptions&lt;Variables&gt;
   ): Observable&lt;ExistenceResult&gt; {
     return super
-      .fetchMapped(variables, options)
+      .fetchMapped(
+        {
+          expression: &#x60;${variables.branch}:&#x60;,
+          ...variables
+        },
+        options
+      )
       .pipe(catchError(err &#x3D;&gt; this.recoverError(err)));
   }
 
@@ -233,7 +246,7 @@ export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Var
         error: &#x27;Unable to read repository.&#x27;
       };
     }
-    const exists &#x3D; result.data.repository.ref !&#x3D;&#x3D; null;
+    const exists &#x3D; result.data.repository.object !&#x3D;&#x3D; null;
     return {
       exists,
       error: exists ? undefined : &#x27;Branch does not exist.&#x27;

@@ -488,6 +488,12 @@ export class ShowdownComponent {
     padding: 8px 16px;
     border-radius: 3px;
     background: #282b2e;
+    margin: 16px 0 !important;
+    overflow: auto;
+
+    &amp;::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+    }
   }
 
   &amp; :not(pre) &gt; code {

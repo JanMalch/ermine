@@ -162,8 +162,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/graphql/existence.query.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/graphql/existence.query.ts:55</a></div>
                 </td>
             </tr>
 
@@ -246,8 +246,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">src/app/graphql/existence.query.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/graphql/existence.query.ts:81</a></div>
                 </td>
             </tr>
 
@@ -316,8 +316,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">src/app/graphql/existence.query.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/graphql/existence.query.ts:70</a></div>
                 </td>
             </tr>
 
@@ -386,8 +386,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/graphql/existence.query.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/graphql/existence.query.ts:40</a></div>
                 </td>
             </tr>
 
@@ -738,10 +738,10 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>gql&#x60;
-    query ExistenceQuery($name: String!, $owner: String!, $branch: String!) {
+    query ExistenceQuery($name: String!, $owner: String!, $expression: String!) {
       repository(name: $name, owner: $owner) {
-        ref(qualifiedName: $branch) {
-          name
+        object(expression: $expression) {
+          oid
         }
       }
     }
@@ -750,7 +750,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/graphql/existence.query.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/graphql/existence.query.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -774,11 +774,12 @@ export interface Variables {
   name: string;
   owner: string;
   branch: string;
+  expression?: string;
 }
 
 export interface Result {
   repository: {
-    ref: string | null;
+    object: string | null;
   };
 }
 
@@ -792,10 +793,10 @@ export interface ExistenceResult {
 })
 export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Variables&gt; {
   document &#x3D; gql&#x60;
-    query ExistenceQuery($name: String!, $owner: String!, $branch: String!) {
+    query ExistenceQuery($name: String!, $owner: String!, $expression: String!) {
       repository(name: $name, owner: $owner) {
-        ref(qualifiedName: $branch) {
-          name
+        object(expression: $expression) {
+          oid
         }
       }
     }
@@ -806,7 +807,13 @@ export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Var
     options?: WatchQueryOptions&lt;Variables&gt;
   ): Observable&lt;ExistenceResult&gt; {
     return super
-      .watchMapped(variables, options)
+      .watchMapped(
+        {
+          expression: &#x60;${variables.branch}:&#x60;,
+          ...variables
+        },
+        options
+      )
       .pipe(catchError(err &#x3D;&gt; this.recoverError(err)));
   }
 
@@ -815,7 +822,13 @@ export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Var
     options?: QueryOptions&lt;Variables&gt;
   ): Observable&lt;ExistenceResult&gt; {
     return super
-      .fetchMapped(variables, options)
+      .fetchMapped(
+        {
+          expression: &#x60;${variables.branch}:&#x60;,
+          ...variables
+        },
+        options
+      )
       .pipe(catchError(err &#x3D;&gt; this.recoverError(err)));
   }
 
@@ -837,7 +850,7 @@ export class ExistenceQuery extends MappingQuery&lt;ExistenceResult, Result, Var
         error: &#x27;Unable to read repository.&#x27;
       };
     }
-    const exists &#x3D; result.data.repository.ref !&#x3D;&#x3D; null;
+    const exists &#x3D; result.data.repository.object !&#x3D;&#x3D; null;
     return {
       exists,
       error: exists ? undefined : &#x27;Branch does not exist.&#x27;

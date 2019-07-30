@@ -66,8 +66,8 @@ customElements.define(
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${
                                           isNormalMode
-                                            ? 'data-target="#components-links-module-AboutModule-65b7df7b36e53df4ca8f33bbbfa4b207"'
-                                            : 'data-target="#xs-components-links-module-AboutModule-65b7df7b36e53df4ca8f33bbbfa4b207"'
+                                            ? 'data-target="#components-links-module-AboutModule-c2189ed2fb6a5431c27968d798db66e6"'
+                                            : 'data-target="#xs-components-links-module-AboutModule-c2189ed2fb6a5431c27968d798db66e6"'
                                         }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
@@ -75,8 +75,8 @@ customElements.define(
                                         </div>
                                         <ul class="links collapse" ${
                                           isNormalMode
-                                            ? 'id="components-links-module-AboutModule-65b7df7b36e53df4ca8f33bbbfa4b207"'
-                                            : 'id="xs-components-links-module-AboutModule-65b7df7b36e53df4ca8f33bbbfa4b207"'
+                                            ? 'id="components-links-module-AboutModule-c2189ed2fb6a5431c27968d798db66e6"'
+                                            : 'id="xs-components-links-module-AboutModule-c2189ed2fb6a5431c27968d798db66e6"'
                                         }>
                                             <li class="link">
                                                 <a href="components/AboutComponent.html"
@@ -113,12 +113,15 @@ customElements.define(
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/AuthModule.html" data-type="entity-link">AuthModule</a>
+                            </li>
+                            <li class="link">
                                 <a href="modules/CoreModule.html" data-type="entity-link">CoreModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${
                                           isNormalMode
-                                            ? 'data-target="#components-links-module-CoreModule-209121ab7de71a15a8ae1771ef3d7074"'
-                                            : 'data-target="#xs-components-links-module-CoreModule-209121ab7de71a15a8ae1771ef3d7074"'
+                                            ? 'data-target="#components-links-module-CoreModule-fd1e77ba1427e8f2b11894e11a8412a0"'
+                                            : 'data-target="#xs-components-links-module-CoreModule-fd1e77ba1427e8f2b11894e11a8412a0"'
                                         }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
@@ -126,8 +129,8 @@ customElements.define(
                                         </div>
                                         <ul class="links collapse" ${
                                           isNormalMode
-                                            ? 'id="components-links-module-CoreModule-209121ab7de71a15a8ae1771ef3d7074"'
-                                            : 'id="xs-components-links-module-CoreModule-209121ab7de71a15a8ae1771ef3d7074"'
+                                            ? 'id="components-links-module-CoreModule-fd1e77ba1427e8f2b11894e11a8412a0"'
+                                            : 'id="xs-components-links-module-CoreModule-fd1e77ba1427e8f2b11894e11a8412a0"'
                                         }>
                                             <li class="link">
                                                 <a href="components/DragSizerComponent.html"
@@ -151,8 +154,8 @@ customElements.define(
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${
                                           isNormalMode
-                                            ? 'data-target="#components-links-module-HomeModule-fde073298f83faa29c81a3660f2a41a5"'
-                                            : 'data-target="#xs-components-links-module-HomeModule-fde073298f83faa29c81a3660f2a41a5"'
+                                            ? 'data-target="#components-links-module-HomeModule-353da30f8df89311d04409b3284d8e47"'
+                                            : 'data-target="#xs-components-links-module-HomeModule-353da30f8df89311d04409b3284d8e47"'
                                         }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
@@ -160,8 +163,8 @@ customElements.define(
                                         </div>
                                         <ul class="links collapse" ${
                                           isNormalMode
-                                            ? 'id="components-links-module-HomeModule-fde073298f83faa29c81a3660f2a41a5"'
-                                            : 'id="xs-components-links-module-HomeModule-fde073298f83faa29c81a3660f2a41a5"'
+                                            ? 'id="components-links-module-HomeModule-353da30f8df89311d04409b3284d8e47"'
+                                            : 'id="xs-components-links-module-HomeModule-353da30f8df89311d04409b3284d8e47"'
                                         }>
                                             <li class="link">
                                                 <a href="components/HomeComponent.html"
@@ -178,8 +181,8 @@ customElements.define(
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${
                                           isNormalMode
-                                            ? 'data-target="#components-links-module-LoginModule-f7166dba519fe23fa3cbdb0c4b97e527"'
-                                            : 'data-target="#xs-components-links-module-LoginModule-f7166dba519fe23fa3cbdb0c4b97e527"'
+                                            ? 'data-target="#components-links-module-LoginModule-e08cb03d922cd28e44bbd1194caa3f9c"'
+                                            : 'data-target="#xs-components-links-module-LoginModule-e08cb03d922cd28e44bbd1194caa3f9c"'
                                         }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
@@ -187,8 +190,8 @@ customElements.define(
                                         </div>
                                         <ul class="links collapse" ${
                                           isNormalMode
-                                            ? 'id="components-links-module-LoginModule-f7166dba519fe23fa3cbdb0c4b97e527"'
-                                            : 'id="xs-components-links-module-LoginModule-f7166dba519fe23fa3cbdb0c4b97e527"'
+                                            ? 'id="components-links-module-LoginModule-e08cb03d922cd28e44bbd1194caa3f9c"'
+                                            : 'id="xs-components-links-module-LoginModule-e08cb03d922cd28e44bbd1194caa3f9c"'
                                         }>
                                             <li class="link">
                                                 <a href="components/LoginChoiceComponent.html"
@@ -212,8 +215,8 @@ customElements.define(
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${
                                           isNormalMode
-                                            ? 'data-target="#components-links-module-SelectModule-389d80fbdc0e78fbcb2b369dc381f388"'
-                                            : 'data-target="#xs-components-links-module-SelectModule-389d80fbdc0e78fbcb2b369dc381f388"'
+                                            ? 'data-target="#components-links-module-SelectModule-d48493763a469fb754b3bbac3057a287"'
+                                            : 'data-target="#xs-components-links-module-SelectModule-d48493763a469fb754b3bbac3057a287"'
                                         }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
@@ -221,8 +224,8 @@ customElements.define(
                                         </div>
                                         <ul class="links collapse" ${
                                           isNormalMode
-                                            ? 'id="components-links-module-SelectModule-389d80fbdc0e78fbcb2b369dc381f388"'
-                                            : 'id="xs-components-links-module-SelectModule-389d80fbdc0e78fbcb2b369dc381f388"'
+                                            ? 'id="components-links-module-SelectModule-d48493763a469fb754b3bbac3057a287"'
+                                            : 'id="xs-components-links-module-SelectModule-d48493763a469fb754b3bbac3057a287"'
                                         }>
                                             <li class="link">
                                                 <a href="components/BranchSelectorComponent.html"
@@ -250,8 +253,8 @@ customElements.define(
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${
                                           isNormalMode
-                                            ? 'data-target="#components-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
-                                            : 'data-target="#xs-components-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
+                                            ? 'data-target="#components-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
+                                            : 'data-target="#xs-components-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
                                         }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
@@ -259,8 +262,8 @@ customElements.define(
                                         </div>
                                         <ul class="links collapse" ${
                                           isNormalMode
-                                            ? 'id="components-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
-                                            : 'id="xs-components-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
+                                            ? 'id="components-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
+                                            : 'id="xs-components-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
                                         }>
                                             <li class="link">
                                                 <a href="components/CodeRendererComponent.html"
@@ -311,8 +314,8 @@ customElements.define(
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${
                                       isNormalMode
-                                        ? 'data-target="#directives-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
-                                        : 'data-target="#xs-directives-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
+                                        ? 'data-target="#directives-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
+                                        : 'data-target="#xs-directives-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
                                     }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
@@ -320,8 +323,8 @@ customElements.define(
                                     </div>
                                     <ul class="links collapse" ${
                                       isNormalMode
-                                        ? 'id="directives-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
-                                        : 'id="xs-directives-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
+                                        ? 'id="directives-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
+                                        : 'id="xs-directives-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
                                     }>
                                         <li class="link">
                                             <a href="directives/PrismDirective.html"
@@ -336,8 +339,8 @@ customElements.define(
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${
                                       isNormalMode
-                                        ? 'data-target="#injectables-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
-                                        : 'data-target="#xs-injectables-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
+                                        ? 'data-target="#injectables-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
+                                        : 'data-target="#xs-injectables-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
                                     }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
@@ -345,8 +348,8 @@ customElements.define(
                                     </div>
                                     <ul class="links collapse" ${
                                       isNormalMode
-                                        ? 'id="injectables-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
-                                        : 'id="xs-injectables-links-module-ViewModule-97920ba5370cc145f2c0445afac2737e"'
+                                        ? 'id="injectables-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
+                                        : 'id="xs-injectables-links-module-ViewModule-46331f2b159d1be12afee4702a7599c3"'
                                     }>
                                         <li class="link">
                                             <a href="injectables/FileLoaderService.html"
