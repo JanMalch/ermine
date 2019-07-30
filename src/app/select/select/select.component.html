@@ -5,7 +5,7 @@
 
 <app-select-form></app-select-form>
 
-<p *ngIf="!(auth.isExtendedScope$ | async)">
+<p *ngIf="!(auth.authState$ | async).extended">
   Unable to open the repository? You are currently logged in with the basic scope.<br />Head
   over to the <a routerLink="/login">login page</a> and click on the extended scope and try
   again.<br />You need the extended scope to read your own private repositories!

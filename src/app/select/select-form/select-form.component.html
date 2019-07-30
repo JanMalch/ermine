@@ -4,7 +4,8 @@
       <mat-icon svgIcon="github-circle" mat-card-avatar></mat-icon>
       <mat-card-title>Select a GitHub repository</mat-card-title>
       <mat-card-subtitle
-        >Scope: {{ (auth.isExtendedScope$ | async) ? 'Extended' : 'Basic' }}</mat-card-subtitle
+        >Scope:
+        {{ (auth.authState$ | async).extended ? 'Extended' : 'Basic' }}</mat-card-subtitle
       >
     </mat-card-header>
     <mat-card-content>

@@ -85,7 +85,7 @@
   <a
     mat-icon-button
     title="Logout"
-    [disabled]="!(auth.isLoggedIn$ | async)"
+    [disabled]="!(auth.authState$ | async).loggedIn"
     (click)="auth.logout()"
   >
     <mat-icon svgIcon="logout-variant"></mat-icon>
@@ -125,7 +125,7 @@
   <a
     mat-menu-item
     title="Logout"
-    [disabled]="!(auth.isLoggedIn$ | async)"
+    [disabled]="!(auth.authState$ | async).loggedIn"
     (click)="auth.logout()"
   >
     <mat-icon svgIcon="logout-variant"></mat-icon>

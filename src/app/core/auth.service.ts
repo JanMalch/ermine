@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthOptions, NetlifyAuthenticator, Providers } from '@core/netlify-authenticator.rx';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs/internal/observable/of';
 import { UsernameQuery } from '@graphql/username.query';
 import { Router } from '@angular/router';
@@ -11,7 +11,15 @@ import { Apollo } from 'apollo-angular';
   providedIn: 'root'
 })
 export class AuthService {
+  static readonly LOGGED_OUT_STATE: AuthState = {
+    extended: false,
+    loggedIn: false,
+    token: undefined,
+    username: undefined
+  };
+
   private readonly authenticator = new NetlifyAuthenticator();
+
   private readonly extendedScope: AuthOptions = {
     scope: 'repo',
     provider: Providers.GitHub
@@ -21,7 +29,7 @@ export class AuthService {
     provider: Providers.GitHub
   };
 
-  readonly authState = new BehaviorSubject<AuthState>({
+  readonly authState$ = new BehaviorSubject<AuthState>({
     extended: localStorage.getItem('scope') === 'extended',
     loggedIn: !!localStorage.getItem('token'),
     token: localStorage.getItem('token') || null,
@@ -34,28 +42,8 @@ export class AuthService {
     private apollo: Apollo
   ) {}
 
-  get isLoggedIn$(): Observable<boolean> {
-    return this.authState.asObservable().pipe(map(state => state.loggedIn));
-  }
-
-  get username$(): Observable<string> {
-    return this.authState.asObservable().pipe(map(state => state.username));
-  }
-
-  get authState$(): Observable<AuthState> {
-    return this.authState.asObservable();
-  }
-
-  get token$(): Observable<string | undefined> {
-    return this.authState.asObservable().pipe(map(state => state.token));
-  }
-
-  get isExtendedScope$(): Observable<boolean> {
-    return this.authState.asObservable().pipe(map(state => state.extended));
-  }
-
   logout() {
-    this.authState.next({
+    this.authState$.next({
       extended: false,
       loggedIn: false,
       token: undefined,
@@ -74,34 +62,24 @@ export class AuthService {
         catchError(err => {
           localStorage.setItem('token', null);
           localStorage.setItem('scope', null);
-          return of({
-            extended,
-            loggedIn: false,
-            token: undefined,
-            username: undefined
-          });
+          return of({ ...AuthService.LOGGED_OUT_STATE, extended });
         }),
-        tap(res => {
+        mergeMap(res => {
           localStorage.setItem('token', res.token);
           localStorage.setItem('scope', extended ? 'extended' : 'basic');
+          return this.usernameQuery
+            .fetchMapped()
+            .pipe(map(username => ({ ...res, username })));
         }),
-        mergeMap(res =>
-          this.usernameQuery.fetchMapped().pipe(
-            map(username => ({
-              ...res,
-              username
-            }))
-          )
-        ),
-        tap(res =>
-          this.authState.next({
+        mergeMap(res => {
+          this.authState$.next({
             extended,
             loggedIn: true,
             token: res.token,
             username: res.username
-          })
-        ),
-        mergeMap(() => this.authState$)
+          });
+          return this.authState$;
+        })
       );
   }
 }
