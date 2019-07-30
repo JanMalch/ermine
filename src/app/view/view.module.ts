@@ -1,29 +1,28 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
+import { FileLoaderService } from '@view/file-loader.service';
+import { RenderCacheService } from '@view/file-viewer/file-renderer/render-cache.service';
+import { RepositoryExistsGuard } from '@view/repository-exists.guard';
+import { WellFormingGuard } from '@view/well-forming.guard';
+import { ClipboardModule } from 'ngx-clipboard';
+import { ShowdownModule } from 'ngx-showdown';
+import { FileTabsComponent } from './file-tabs/file-tabs.component';
+import { FileTreeComponent } from './file-tree/file-tree.component';
+import { FileFooterComponent } from './file-viewer/file-footer/file-footer.component';
+import { LanguageSelectionComponent } from './file-viewer/file-footer/language-selection/language-selection.component';
+import { ScrollIntoViewDirective } from './file-viewer/file-footer/scroll-into-view.directive';
+import { CodeRendererComponent } from './file-viewer/file-renderer/code-renderer.component';
+import { CsvComponent } from './file-viewer/file-renderer/csv.component';
+import { FileRendererComponent } from './file-viewer/file-renderer/file-renderer.component';
+import { ImageRendererComponent } from './file-viewer/file-renderer/image-renderer.component';
+import { PrismDirective } from './file-viewer/file-renderer/prism.directive';
+import { ShowdownComponent } from './file-viewer/file-renderer/showdown.component';
+import { FileViewerComponent } from './file-viewer/file-viewer.component';
 
 import { ViewRoutingModule } from './view-routing.module';
 import { ViewComponent } from './view/view.component';
-import { WellFormingGuard } from '@view/well-forming.guard';
-import { RepositoryExistsGuard } from '@view/repository-exists.guard';
-import { FileLoaderService } from '@view/file-loader.service';
-import { SharedModule } from '@shared/shared.module';
-import { MaterialModule } from '@material/material.module';
-import { FileTabsComponent } from './file-tabs/file-tabs.component';
-import { FileTreeComponent } from './file-tree/file-tree.component';
-import { FileViewerComponent } from './file-viewer/file-viewer.component';
-import { FileFooterComponent } from './file-viewer/file-footer/file-footer.component';
-import { FileRendererComponent } from './file-viewer/file-renderer/file-renderer.component';
-import { ShowdownComponent } from './file-viewer/file-renderer/showdown.component';
-import { ShowdownModule } from 'ngx-showdown';
-import { CodeRendererComponent } from './file-viewer/file-renderer/code-renderer.component';
-import { PrismDirective } from './file-viewer/file-renderer/prism.directive';
-import { CsvComponent } from './file-viewer/file-renderer/csv.component';
-import { ImageRendererComponent } from './file-viewer/file-renderer/image-renderer.component';
-import { ClipboardModule } from 'ngx-clipboard';
-import { RenderCacheService } from '@view/file-viewer/file-renderer/render-cache.service';
-import { LanguageSelectionComponent } from './file-viewer/file-footer/language-selection/language-selection.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ScrollIntoViewDirective } from './file-viewer/file-footer/scroll-into-view.directive';
 
 @NgModule({
   declarations: [
@@ -44,7 +43,6 @@ import { ScrollIntoViewDirective } from './file-viewer/file-footer/scroll-into-v
   imports: [
     CommonModule,
     ViewRoutingModule,
-    MaterialModule,
     SharedModule,
     ShowdownModule.forRoot({
       tables: true,

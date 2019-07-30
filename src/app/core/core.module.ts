@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from '@auth/auth.module';
 import { LoadingInterceptor } from '@core/loading.interceptor';
-import { MaterialModule } from '@material/material.module';
 import { SharedModule } from '@shared/shared.module';
 
 import { CoreRoutingModule } from './core-routing.module';
@@ -14,14 +13,7 @@ import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [NavComponent, DragSizerComponent],
-  imports: [
-    CommonModule,
-    CoreRoutingModule,
-    AuthModule.forRoot(),
-    MaterialModule,
-    LayoutModule,
-    SharedModule
-  ],
+  imports: [CommonModule, CoreRoutingModule, AuthModule.forRoot(), SharedModule, LayoutModule],
   exports: [HttpClientModule, RouterModule, NavComponent],
   providers: [
     {
