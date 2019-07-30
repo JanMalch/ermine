@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { AuthOptions, NetlifyAuthenticator, Providers } from '@core/netlify-authenticator.rx';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
-import { of } from 'rxjs/internal/observable/of';
-import { UsernameQuery } from '@graphql/username.query';
 import { Router } from '@angular/router';
+import { UsernameQuery } from '@graphql/username.query';
 import { Apollo } from 'apollo-angular';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { of } from 'rxjs/internal/observable/of';
+import { catchError, map, mergeMap } from 'rxjs/operators';
+import { AuthModule } from './auth.module';
+import { AuthOptions, NetlifyAuthenticator, Providers } from './netlify-authenticator.rx';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: AuthModule
 })
 export class AuthService {
   static readonly LOGGED_OUT_STATE: AuthState = {

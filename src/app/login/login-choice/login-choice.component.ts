@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AuthService, AuthState } from '@core/auth.service';
-import { AuthResponse } from '@core/netlify-authenticator.rx';
-import { first } from 'rxjs/operators';
+import { AuthService, AuthState } from '@auth/auth.service';
 import { Subject } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login-choice[extendedScope]',

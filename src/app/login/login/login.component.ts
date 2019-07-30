@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, AuthState } from '@core/auth.service';
-import { AuthResponse } from '@core/netlify-authenticator.rx';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService, AuthState } from '@auth/auth.service';
 
 @Component({
   selector: 'app-login',

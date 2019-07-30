@@ -1,19 +1,27 @@
-import { NgModule } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { AuthModule } from '@auth/auth.module';
+import { LoadingInterceptor } from '@core/loading.interceptor';
+import { MaterialModule } from '@material/material.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { CoreRoutingModule } from './core-routing.module';
-import { MaterialModule } from '@material/material.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { NavComponent } from './nav/nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { SharedModule } from '@shared/shared.module';
 import { DragSizerComponent } from './drag-sizer/drag-sizer.component';
-import { LoadingInterceptor } from '@core/loading.interceptor';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [NavComponent, DragSizerComponent],
-  imports: [CommonModule, CoreRoutingModule, MaterialModule, LayoutModule, SharedModule],
+  imports: [
+    CommonModule,
+    CoreRoutingModule,
+    AuthModule.forRoot(),
+    MaterialModule,
+    LayoutModule,
+    SharedModule
+  ],
   exports: [HttpClientModule, RouterModule, NavComponent],
   providers: [
     {

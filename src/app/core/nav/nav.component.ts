@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { filter, mergeMap } from 'rxjs/operators';
-import { CopyModeService } from '@core/copy-mode.service';
-import { AuthService } from '@core/auth.service';
-import { StyleService } from '@core/style.service';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatSidenav } from '@angular/material';
+import { AuthService } from '@auth/auth.service';
+import { CopyModeService } from '@core/copy-mode.service';
 import { isHandset } from '@core/responsive';
+import { StyleService } from '@core/style.service';
+import { filter, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nav',
