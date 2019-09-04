@@ -15,6 +15,6 @@ Over 190 languages are supported for highlighting, with the help of [Prism.js](h
 
 Check out the source code:
 
-[![Explore on Ermine](https://img.shields.io/badge/Explore%20with-Ermine-blue)](https://ermine.netlify.com/view?url=JanMalch/ermine).
+[![Explore on Ermine](https://img.shields.io/badge/Explore%20with-Ermine-blue)](https://ermine.netlify.com/view?url=JanMalch/ermine)
 
 Find out more in the [complete documentation](https://janmalch.github.io/ermine/).
